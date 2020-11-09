@@ -94,7 +94,6 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
                     <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
@@ -113,9 +112,9 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-8 bg-custom d-none d-md-block py-3 px-0">
-                                <h1>Naslov</h1>
+                                <h1>Vagabond's Map</h1>
                                 <div class="border-top border-primary w-50 mx-auto my-3">
-                                    <h3 class="pb-3">Dodatni tekst</h3>
+                                    <h3 class="pb-3">Experience the other perspective</h3>
                                     <a href="#" class="btn btn-danger btn-lg mr-2">View Demo</a>
                                     <a href="#" class="btn btn-primary btn-lg ml-2">Start Now</a>
                                 </div>
@@ -130,8 +129,8 @@
                     <div class="container">
                         <div class="row justify-content-end text-right">
                             <div class="col-8 bg-custom d-none d-lg-block py-3 px-0 pr-3">
-                                <p class="lead pb-3">SOME ADDITIONAL TEXT OUT HERE :)</p>
-                                <a href="#" class="btn btn-danger btn-lg mr-2">Red btn</a>
+                                <p class="lead pb-3">Ready to start another chapter?</p>
+                                <a href="#" class="btn btn-danger btn-lg mr-2">Here!</a>
                             </div>
                         </div>
                     </div>
@@ -169,10 +168,10 @@
     
     <!-- Main Page Heading -->
     <div class="col-12 text-center mt-5">
-        <h2 class="text-dark pt-4">Build with ease</h2>
+        <h2 class="text-dark pt-4">Innovation</h2>
     
     <div class="border-top border-primary w-25 mx-auto my-3"></div>
-    <p class="lead">This is some thext under the border</p>
+    <p class="lead">What lies beyond?</p>
     </div>      
     <!-- Three Column Section -->
     <div class="container">
@@ -180,19 +179,19 @@
             
             <div class="col-md-4 my-4">
                     <img src="img/1.jpg" alt="" class="w-100">
-                    <h4 class="my-4">Amazing.Incredible</h4>
+                    <h4 class="my-4">Need to recharge?</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>
                 <div class="col-md-4 my-4">
                     <img src="img/2.jpg" alt="" class="w-100">
-                    <h4 class="my-4">Amazing.Incredible</h4>
+                    <h4 class="my-4">Want to travel?</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>
                 <div class="col-md-4 my-4">
                     <img src="img/3.jpg" alt="" class="w-100">
-                    <h4 class="my-4">Amazing.Incredible</h4>
+                    <h4 class="my-4">Looking for an inspiration?</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>

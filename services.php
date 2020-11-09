@@ -8,15 +8,10 @@
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Testiranje REST API-a</title>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <?php
-    
-        include "obrada.php";
-    
-    ?>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <title>Vagabond's map</title>
+ 
       <style type="text/css">
 			body {
 				margin: 0;
@@ -71,7 +66,14 @@
 			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
 			setInterval(get_time, 30250); //sync with server every 30,25 second
 			get_time();
-		</script>
+        </script>
+           <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <?php
+    
+        include "obrada.php";
+    
+    ?>
 </head>
 
 <body>
@@ -381,6 +383,7 @@
     // dođemo do svih čekiranih input polja čiji je name http_zahtev 
     // i da pristupimo njegovom id-u jer su kao id postavljene vrednosti get post put delete 
     function prikaziBlok() {
+        console.log()
         switch ($("input[name=http_zahtev]:checked")[0].id) {
             case "get":
                 // u slučaju da odaberemo get, sakrićemo sve prethodno prikazane div-ove
@@ -509,11 +512,46 @@
 
     }
 
+    //funkcija posaljiZahtev obrađuje pomoću AJAX-a zahteve koje šaljemo ka serveru
+    function posaljiZahtev(){
+        console.log('Zahtev')
+        //na samom početku nam je bitno da su selektovani i zahtev i tabela
+        if($("input[name=odabir_tabele]:checked").length!=0 && $("input[name=http_zahtev]:checked").length!=0){
+            //ako jesu nastavljamo sa obradom zahteva
+            //pamtimo koja je tabela u pitanju
+            var tabela = $("input[name=odabir_tabele]:checked")[0].id;
+            console.log(" eee"+tabela)
+            //i ponovo  kroz switch prolazimo i obrađujemo svaki zahtev
+            switch ( $("input[name=http_zahtev]:checked")[0].id){
+                case "get":
+                //kada je get u pitanju
+                //proveravamo koja je tabela
+                    if(tabela=="radio_drzava"){
+                        //i nakon toga pozivamo getJSON funkciju kojoj prosleđujemo link endpoint-a našeg API-a
+                        //više od funkciji getJSON https://api.jquery.com/jquery.getjson/
+                            console.log('drzava')
+                        //getJSON funkcija ima 2 bitna parametra, a to su url koji prosleđujemo i success funkcija koja kojom obrađujemo podatke koje smo dobili
+                        //data parametar u okviru funkcije, predstavlja podatke poslate sa servera u JSON formatu
+                        $.getJSON("http://localhost:80/aerodrom/drzava", function(data){
+                            //postavljamo unutrašnji HTML div bloka get_odgovor na pretty string reprezentaciju JSON objekta
+                            //string reprezentacija je mogla i da se postavi samo sa JSON.stringify(data)
+                            // ali postavljamo i parametre null i 2 kako bi prikaz JSONa bio čitljiv
+                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
+                        });
+                    }else{
+                        //ponavljamo istu proceduru samo za tabelu kategorije
+                        $.getJSON("http://localhost:80/rest/api/kategorije", function(data){
+                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
+                        });
+                    }
+                    break;
+
+                default:
+                    console.log("default");
+            }
+        }
+    }
 
     //funkcija posaljiZahtev obrađuje pomoću AJAX-a zahteve koje šaljemo ka serveru
-    
-    $("input[name=http_zahtev]").on('click',prikaziBlok);
-    $("input[name=odabir_tabele]").on('click',resetHTTP);
-   // $("button").on('click', posaljiZahtev);
+
 </script>
-</html>

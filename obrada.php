@@ -206,8 +206,16 @@
         }else {
             if( $_POST["odabir_tabele"]!= null){
                  $tabela = $_POST["odabir_tabele"];
-              $result=  $mydb->select($tabela, "*", null, null, null);
-                   
+            
+              ?>  <script>
+                  console.log('Hello')
+                $.getJSON("http://localhost:80/rest/api/novosti", function(data){
+                    //postavljamo unutrašnji HTML div bloka get_odgovor na pretty string reprezentaciju JSON objekta
+                    //string reprezentacija je mogla i da se postavi samo sa JSON.stringify(data)
+                    // ali postavljamo i parametre null i 2 kako bi prikaz JSONa bio čitljiv
+                    document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
+                });</script>   <?php
+                  $result=  $mydb->select($tabela, "*", null, null, null);
          }
            
         }
