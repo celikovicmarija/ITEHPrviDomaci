@@ -107,11 +107,13 @@
             </div>
         </div>
     </nav>
-    <h1>Forma za manipulaciju sa API-em</h1>
-
+    <h1 class="text-center pt-4 pb-4">Forma za manipulaciju sa API-em</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mail-form">
     <!-- Radio button grupa za odabir tipa tabele iz baze koji želimo da menjamo -->
     <form action="" method="post">
-        <div id="odabir_tabele">
+        <div id="odabir_tabele" class="text-center pt-4 pb-1">
             <input type="radio" name="odabir_tabele" id="radio_avion" value="avion">
             <label for="radio_avion">avion</label>
             <input type="radio" name="odabir_tabele" id="radio_drzava" value="drzava">
@@ -127,7 +129,7 @@
 
         <!-- Radio button grupa za odabir tipa HTTP zahteva koji želimo da pošaljemo -->
 
-        <div id="http_zahtev">
+        <div id="http_zahtev" class="text-center pt-1 pb-2">
             <input type="radio" name="http_zahtev" id="get" value="get">
             <label for="get">GET</label>
             <input type="radio" name="http_zahtev" id="post" value="post">
@@ -141,9 +143,9 @@
         <!-- Div sekcija za prikaz odgovora za GET zahtev sa servera
         HTML tag <pre></pre> nam omogućava da ispisuje prethodno formatiran tekst, što nam je potrebno za pretty prikaz JSON-a -->
 
-        <pre id="get_odgovor"></pre>
+        <pre id="get_odgovor" class="text-center pt-4 pb-4"></pre>
 
-        <div id="avion_post">
+        <div id="avion_post" class="text-center pt-4 pb-4">
             <input type="text" name="regbroj_avion" placeholder="Unesite registarski broj aviona">
             <br>
             <input type="text" name="naziv_avion" placeholder="Unesite naziv aviona">
@@ -154,13 +156,13 @@
             <br>
         </div>
 
-        <div id="drzava_post">
+        <div id="drzava_post"class="text-center pt-4 pb-4">
             <input type="text" name="naziv_drzava" placeholder="Unesite naziv drzave">
             <br>
         </div>
 
 
-        <div id="let_post">
+        <div id="let_post"class="text-center pt-4 pb-4">
             <input type="text" name="idruta_let" id="idruta_let" placeholder="Unesite rutu leta">
             <br>
             <input type="text" name="idpilot_let" id ="idpilot_let" placeholder="Unesite id pilota leta">
@@ -176,7 +178,7 @@
 
 
         </div>
-        <div id="pilot_post">
+        <div id="pilot_post"class="text-center pt-4 pb-4">
             <input type="text" name="jmbg_pilot" id="jmbg_pilot" placeholder="Unesite jmbg pilota">
             <br>
             <input type="text" name="iddrzavljanstvo_pilot" id="iddrzavljanstvo_pilot" placeholder="Unesite drzavljanstvo pilota">
@@ -192,7 +194,7 @@
             <input type="text" name="sati_pilot" id="sati_pilot" placeholder="Unesite broj sati rada pilota">
 
         </div>
-        <div id="ruta_post">
+        <div id="ruta_post"class="text-center pt-4 pb-4">
         <input type="text" name="broj_ruta" placeholder="Unesite broj rute">
             <br>
             <input type="text" name="naziv_ruta" placeholder="Unesite naziv rute">
@@ -208,28 +210,28 @@
 
 
 
-        <div id="brisanje_reda">
+        <div id="brisanje_reda"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje" id="brisanje" placeholder="Unesite id koji želite da obrišete">
         </div>
-        <div id="brisanje_reda_avion">
+        <div id="brisanje_reda_avion"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_avion" id="brisanje_avion" placeholder="Unesite id aviona koji želite da obrišete">
         </div>
-        <div id="brisanje_reda_drzava">
+        <div id="brisanje_reda_drzava"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_drzava" id="brisanje_drzava" placeholder="Unesite id drzave koju želite da obrišete">
         </div>
-        <div id="brisanje_reda_let">
+        <div id="brisanje_reda_let"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_let" id="brisanje_let" placeholder="Unesite id leta koji želite da obrišete">
         </div>
-        <div id="brisanje_reda_pilot">
+        <div id="brisanje_reda_pilot"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_pilot" id="brisanje_pilot" placeholder="Unesite jmbg pilota koji želite da obrišete">
         </div>
-        <div id="brisanje_reda_ruta">
+        <div id="brisanje_reda_ruta"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_ruta" id="brisanje_ruta" placeholder="Unesite id rute koju želite da obrišete">
         </div>
 
 
 
-        <div id="avion_put">
+        <div id="avion_put"class="text-center pt-4 pb-4">
             <input type="text" name="regbr_avion" id="regbr_avion"
                 placeholder="Unesiteregistarkski broj aviona za promenu">
             <br>
@@ -243,14 +245,14 @@
             <br>
 
         </div>
-        <div id="drzava_put">
+        <div id="drzava_put"class="text-center pt-4 pb-4">
             <input type="text" name="id_drzava" id="id_drzava" placeholder="Unesite id drzave za promenu">
             <br>
             <input type="text" name="naziv_drzava_put" id="naziv_drzava_put" placeholder="Unesite novi naziv drzave">
             <br>
         </div>
         <!-- ovo menjaj-->
-        <div id="let_put">
+        <div id="let_put"class="text-center pt-4 pb-4">
             <input type="text" name="idruta_let_put" id="idruta_let_put" placeholder="Unesite rutu leta za promenu">
             <br>
             <input type="text" name="idpilot_let_put" id="idpilot_let_put"
@@ -266,7 +268,7 @@
             <br>
             <input type="text" name="trajanje_let_put" id="trajanje_let_put" placeholder="Unesite novo trajanje leta">
         </div>
-        <div id="pilot_put">
+        <div id="pilot_put"class="text-center pt-4 pb-4">
             <input type="text" name="jmbg_pilot_put" placeholder="Unesite jmbg pilota za promenu">
             <br>
             <input type="text" name="iddrzavljanstvo_pilot_put" placeholder="Unesite novo drzavljanstvo pilota">
@@ -279,7 +281,7 @@
             <input type="text" name="sati_pilot_put" id="sati_pilot_put"
                 placeholder="Unesite novi broj sati rada pilota">
         </div>
-        <div id="ruta_put">
+        <div id="ruta_put"class="text-center pt-4 pb-4">
             <input type="text" name="id_ruta" id="id_ruta" placeholder="Unesite id rute za izmenu">
             <br>
             <input type="text" name="naziv_ruta_put" id="naziv_ruta_put" placeholder="Unesite naziv rute">
@@ -298,18 +300,20 @@
 
         <!-- Div sekcija za ispisivanje grešaka u slučaju pogrešne selekcije radio button-a -->
 
-        <div id="greska">
+        <div id="greska"class="text-center pt-4 pb-4">
 
             <!-- Div sekcija za za dugme preko kojeg će se slati zahtevi -->
 
         </div>
         <!--<div id="submit"> <button type="button">Posalji zahtev</button>        </div>-->
         
-        <div id="submit">
+        <div id="submit" class="text-center pt-4 pb-4">
             <input type="submit" name="posalji" id="posalji" value="Posalji zahtev">
         </div>
     </form>
-
+    </div>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="row text-light text-center py-4 justify-content-center">
