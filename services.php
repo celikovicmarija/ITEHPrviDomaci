@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Testiranje REST API-a</title>
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -14,9 +17,96 @@
         include "obrada.php";
     
     ?>
+      <style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrapper {
+				width: 100%;
+			}
+			
+			#clock {
+				width: 100%;
+                min-height: 15px;
+				margin: 0px auto;
+				text-align: left;
+				font-size: 1.2rem;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript">
+			var start_time;
+			var current_time;
+			
+			//gets current server time
+			var get_time = function () {
+				$.ajax({
+					type: 'GET',
+					url: 'timestamp.php',
+					data: ({ action : 'get_time' }),
+					success: (function (data) {
+						start_time = new Date(
+							data.year, 
+							data.month, 
+							data.day, 
+							data.hour, 
+							data.minute, 
+							data.second
+						);
+						$('#clock').html(current_time.toLocaleTimeString());
+					}),
+					dataType: 'json'
+				});
+			}
+			
+			//counts 0.25s
+			var cnt_time = function () {
+				current_time = new Date(start_time.getTime() + 250);
+				$('#clock').html(current_time.toLocaleTimeString());
+				start_time = current_time;
+			}
+			
+			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
+			setInterval(get_time, 30250); //sync with server every 30,25 second
+			get_time();
+		</script>
 </head>
 
 <body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="col-12 text-right">
+            <div id="wrapper">
+			<div id="clock"></div>
+		</div>
+                <p><a href="tel:+000000000">We're one phone call away!</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Bar -->
+    <!-- Navigation -->
+    <nav class="navbar bg-light navbar-light navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                
+                <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
+                <span class="align-baseline">Vagabond's map</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
+                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <h1>Forma za manipulaciju sa API-em</h1>
 
     <!-- Radio button grupa za odabir tipa tabele iz baze koji želimo da menjamo -->
@@ -220,6 +310,40 @@
         </div>
     </form>
 
+    <footer>
+        <div class="container">
+            <div class="row text-light text-center py-4 justify-content-center">
+                   <div class="col-sm-10 col-md-8 col-lg-6">
+                       <img src="img/airplane.svg" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi explicabo fugit corrupti maxime ab vitae cupiditate dolor, esse aliquam a laborum perferendis, tempore deleniti facere laudantium minus! Voluptates, numquam alias.</p>
+                <ul class="social pt-3">
+                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+                
+                
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Start Socket -->
+    <div class="socket text-light text-center py-3">
+        <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
+    </div>
+    <!-- End Socket -->
+    <!-- Script Source Files -->
+    <!-- jQuery -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap 4.5 JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="js/all.min.js"></script>
+
 </body>
 
 
@@ -383,318 +507,7 @@
 
 
     //funkcija posaljiZahtev obrađuje pomoću AJAX-a zahteve koje šaljemo ka serveru
-    function posaljiZahtev() {
-        //na samom početku nam je bitno da su selektovani i zahtev i tabela
-        if ($("input[name=odabir_tabele]:checked").length != 0 && $("input[name=http_zahtev]:checked").length != 0) {
-            //ako jesu nastavljamo sa obradom zahteva
-            //pamtimo koja je tabela u pitanju
-            var tabela = $("input[name=odabir_tabele]:checked")[0].id;
-
-            //i ponovo kroz switch prolazimo i obrađujemo svaki zahtev
-            switch ($("input[name=http_zahtev]:checked")[0].id) {
-                case "get":
-                    //kada je get u pitanju
-                    //proveravamo koja je tabela
-                    if (tabela == "radio_avion") {
-                        $.getJSON("http://localhost:80/aerodrom/avion", function (data) {
-
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data, null, 2);
-                        });
-                    } else if (tabela == "radio_drzava") {
-                        $.getJSON("http://localhost:80/aerodrom/drzava", function (data) {
-
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data, null, 2);
-                        });
-                    }
-                    else if (tabela == "radio_let") {
-                        $.getJSON("http://localhost:80/aerodrom/let", function (data) {
-
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data, null, 2);
-                        });
-                    }
-                    else if (tabela == "radio_pilot") {
-                        $.getJSON("http://localhost:80/aerodrom/pilot", function (data) {
-
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data, null, 2);
-                        });
-                    }
-                    else if (tabela == "radio_ruta") {
-                        $.getJSON("http://localhost:80/aerodrom/ruta", function (data) {
-
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data, null, 2);
-                        });
-                    }
-                    break;
-                case "post":
-                    if (tabela == "radio_avion") {
-                        // kada je post zahtev u pitanju, potrebno je da 
-                        // prikupimo podatke koje hoćemo da pošaljemo iz forme
-                        var values = {
-                            "RegBroj": parseInt($("#kategorija_odabir").val()),
-                            "NazivAviona": $("input[name=naziv_avion]").val(),
-                            "MaxBrojPutnika": parseInt($("#kategorija_odabir").val()),
-                            "GodinaProizvodnje": parseInt($("#kategorija_odabir").val())
-                        };
-                        //ispisaćemo te podatke u konzoli kako bismo bili siguri da dobijamo dobar izlaz
-                        //konzoli pristupamo u brauzeru sa CTRL+Shift+i i biramo tab Console
-                        console.log(values);
-                        //post zahtev se obrađuje na sličan način kao get
-                        //potrebna su nam dva parametra u funkciji post
-                        //url na koji šaljemo podatke
-                        //koje podatke šaljemo
-                        //i success funkcija u okviru koje prikazujemo odgovor sa servera
-                        $.post("http://localhost:80/aerodrom/avion", JSON.stringify(values), function (data) {
-                            alert("Odgovor od servera> " + data['poruka']);
-                        });
-                    } else if (tabela == "radio_drzava") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti]").val(),
-                            "tekst": $("#tekst_novosti").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir").val())
-                        };
-
-                        console.log(values);
-
-                        $.post("http://localhost:80/aerodrom/drzava", JSON.stringify(values), function (data) {
-                            alert("Odgovor od servera> " + data['poruka']);
-                        });
-                    }
-                    else if (tabela == "radio_let") {
-
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti]").val(),
-                            "tekst": $("#tekst_novosti").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir").val())
-                        };
-
-
-                        $.post("http://localhost:80/aerodrom/let", JSON.stringify(values), function (data) {
-                            alert("Odgovor od servera> " + data['poruka']);
-                        });
-                    }
-                    else if (tabela == "radio_pilot") {
-
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti]").val(),
-                            "tekst": $("#tekst_novosti").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir").val())
-                        };
-
-                        console.log(values);
-                        $.post("http://localhost:80/aerodrom/pilot", JSON.stringify(values), function (data) {
-                            alert("Odgovor od servera> " + data['poruka']);
-                        });
-                    }
-                    else if (tabela == "radio_ruta") {
-
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti]").val(),
-                            "tekst": $("#tekst_novosti").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir").val())
-                        };
-                        console.log(values);
-                        $.post("http://localhost:80/aerodrom/ruta", JSON.stringify(values), function (data) {
-                            alert("Odgovor od servera> " + data['poruka']);
-                        });
-                    }
-                    break;
-                case "put": {
-                    if (tabela == "radio_avion") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti_put]").val(),
-                            "tekst": $("#tekst_novosti_put").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir_put").val())
-                        };
-
-                        console.log(values);
-
-
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/avion/" + values.kategorija_id + "/",
-                            method: "PUT",
-                            data: JSON.stringify(values),
-                            success: function (data) {
-                                console.log(data)
-                            },
-                            dataType: 'json'
-                        })
-                            ;
-                    } else if (tabela == "radio_drzava") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti_put]").val(),
-                            "tekst": $("#tekst_novosti_put").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir_put").val())
-                        };
-
-                        console.log(values);
-
-
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/drzava/" + values.kategorija_id + "/",
-                            method: "PUT",
-                            data: JSON.stringify(values),
-                            success: function (data) {
-                                console.log(data)
-                            },
-                            dataType: 'json'
-                        })
-                            ;
-                    }
-                    else if (tabela == "radio_let") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti_put]").val(),
-                            "tekst": $("#tekst_novosti_put").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir_put").val())
-                        };
-
-                        console.log(values);
-
-
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/let/" + values.kategorija_id + "/",
-                            method: "PUT",
-                            data: JSON.stringify(values),
-                            success: function (data) {
-                                console.log(data)
-                            },
-                            dataType: 'json'
-                        })
-                            ;
-                    }
-                    else if (tabela == "radio_pilot") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti_put]").val(),
-                            "tekst": $("#tekst_novosti_put").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir_put").val())
-                        };
-
-                        console.log(values);
-
-
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/pilot/" + values.kategorija_id + "/",
-                            method: "PUT",
-                            data: JSON.stringify(values),
-                            success: function (data) {
-                                console.log(data)
-                            },
-                            dataType: 'json'
-                        })
-                            ;
-                    }
-                    else if (tabela == "radio_ruta") {
-                        var values = {
-                            "naslov": $("input[name=naslov_novosti_put]").val(),
-                            "tekst": $("#tekst_novosti_put").val(),
-                            "kategorija_id": parseInt($("#kategorija_odabir_put").val())
-                        };
-
-                        console.log(values);
-
-
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/ruta/" + values.kategorija_id + "/",
-                            method: "PUT",
-                            data: JSON.stringify(values),
-                            success: function (data) {
-                                console.log(data)
-                            },
-                            dataType: 'json'
-                        })
-                            ;
-                        /*
-                        var values ={
-                           "id": parseInt($("input[name=id_kategorije]").val()),
-                           "kategorija" : $("input[name=kategorija_naziv_put]").val()
-                           
-                        }
-                        console.log(values);
-                        $.ajax({
-                            url: "http://localhost:80/aerodrom/rest/api/kategorije/"+values.id+"/",
-                            method: "PUT",
-                            data:JSON.stringify(values),
-                            success: function(data){
-                                console.log(data)
-                            },
-                            dataType:'json'
-                        })
-                        ;*/
-                    }
-
-                }
-                    break;
-                case "delete":
-                    //kod za bonus poene
-                    {
-
-                        if (tabela == "radio_avion") {
-                            var value = parseInt($("input[name=brisanje]").val());
-
-                            $.ajax({
-                                url: "http://localhost:80/aerodrom/avion/" + value + "/",
-                                method: "DELETE",
-                                success: function (data) {
-                                    console.log(data)
-                                }
-                            })
-                                ;
-                        } else if (tabela == "radio_drzava") {
-                            var value = parseInt($("input[name=brisanje]").val());
-
-                            $.ajax({
-                                url: "http://localhost:80/aerodrom/drzava/" + value + "/",
-                                method: "DELETE",
-                                success: function (data) {
-                                    console.log(data)
-                                }
-                            })
-                                ;
-                        }
-                        else if (tabela == "radio_let") {
-                            var value = parseInt($("input[name=brisanje]").val());
-
-                            $.ajax({
-                                url: "http://localhost:80/aerodrom/let/" + value + "/",
-                                method: "DELETE",
-                                success: function (data) {
-                                    console.log(data)
-                                }
-                            })
-                                ;
-                        }
-                        else if (tabela == "radio_pilot") {
-                            var value = parseInt($("input[name=brisanje]").val());
-
-                            $.ajax({
-                                url: "http://localhost:80/aerodrom/pilot/" + value + "/",
-                                method: "DELETE",
-                                success: function (data) {
-                                    console.log(data)
-                                }
-                            })
-                                ;
-                        }
-                        else if (tabela == "radio_ruta") {
-                            var value = parseInt($("input[name=brisanje]").val());
-
-                            $.ajax({
-                                url: "http://localhost:80/aerodrom/ruta/" + value + "/",
-                                method: "DELETE",
-                                success: function (data) {
-                                    console.log(data)
-                                }
-                            })
-                                ;
-                        }
-                        
-                    }
-
-                    break;
-                default:
-                    console.log("default");
-            }
-        }
-    }
+    
     $("input[name=http_zahtev]").on('click',prikaziBlok);
     $("input[name=odabir_tabele]").on('click',resetHTTP);
    // $("button").on('click', posaljiZahtev);

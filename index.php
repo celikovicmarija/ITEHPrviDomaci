@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ITEH Domaci</title>
+    <title>Vagabond's map</title>
     <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- Bootstrap 4.5 CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Style CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts -->
+    
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
     <style type="text/css">
 			body {
@@ -68,10 +66,7 @@
 			setInterval(get_time, 30250); //sync with server every 30,25 second
 			get_time();
 		</script>
-
 </head>
-
-
 <body>
       
     <!-- Top Bar -->
@@ -81,45 +76,37 @@
             <div id="wrapper">
 			<div id="clock"></div>
 		</div>
-                <p><a href="tel:+000000000">Call us at (999) 4567890</a></p>
+                <p><a href="tel:+000000000">We're one phone call away!</a></p>
             </div>
         </div>
     </div>
-
     <!-- End Top Bar -->
-
-
     <!-- Navigation -->
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
         <div class="container">
             <a href="index.html" class="navbar-brand">
+                
                 <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
-
+                <span class="align-baseline">Vagabond's map</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
                     <li class="nav-item"><a href="" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="/contact.php" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
+                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <!-- End Navigation -->
-
-
     <!-- Image Carousel -->
     <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="6500">
-
         <!-- Carousel Content -->
         <div class="carousel-inner">
-
             <div class="carousel-item active">
                 <img src="img/carousel/1.png" alt="" class="w-100">
                 <div class="carousel-caption">
@@ -145,14 +132,11 @@
                             <div class="col-8 bg-custom d-none d-lg-block py-3 px-0 pr-3">
                                 <p class="lead pb-3">SOME ADDITIONAL TEXT OUT HERE :)</p>
                                 <a href="#" class="btn btn-danger btn-lg mr-2">Red btn</a>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <div class="carousel-item">
                 <img src="img/carousel/3.png" alt="" class="w-100">
                 <div class="carousel-caption">
@@ -170,77 +154,56 @@
                 </div>
             </div>
         </div>
-
     </div>
     <!-- End Carousel Content -->
-
-
     <!-- Previous & Next Buttons -->
     <a href="#carousel" class="carousel-control-prev" role="button" data-slide="prev">
         <span class="fas fa-chevron-left fa-2x"></span>
     </a>
-
     <a href="#carousel" class="carousel-control-next" role="button" data-slide="next">
         <span class="fas fa-chevron-right fa-2x"></span>
     </a>
-
     <!-- End Previous & Next Buttons -->
-
 </div>
     <!-- End Image Carousel -->
     
-
     <!-- Main Page Heading -->
-
     <div class="col-12 text-center mt-5">
         <h2 class="text-dark pt-4">Build with ease</h2>
     
     <div class="border-top border-primary w-25 mx-auto my-3"></div>
     <p class="lead">This is some thext under the border</p>
     </div>      
-
     <!-- Three Column Section -->
     <div class="container">
         <div class="row my-5">
             
-
             <div class="col-md-4 my-4">
-                    <img src="img/1.png" alt="" class="w-100">
+                    <img src="img/1.jpg" alt="" class="w-100">
                     <h4 class="my-4">Amazing.Incredible</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>
-
                 <div class="col-md-4 my-4">
                     <img src="img/2.jpg" alt="" class="w-100">
                     <h4 class="my-4">Amazing.Incredible</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>
-
                 <div class="col-md-4 my-4">
                     <img src="img/3.jpg" alt="" class="w-100">
                     <h4 class="my-4">Amazing.Incredible</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
                 <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
                 </div>
-
-
-
         </div>
     </div>
-
     <!-- End Three Column Section -->
-
-
     <!-- Emoji Navbar First -->
     <a class="navbar bg-primary sticky-top emoji" href="#emoji" role="button"
     data-toggle="collapse"></a>
-
-
     <!-- Start Fixed Background IMG -->
 <div class="fixed-background">
-
     <div class="row text-light py-5">
         <div class="col-12 text-center">
             <h1>Advance to the next level</h1>
@@ -249,7 +212,6 @@
              class="btn btn-primary btn-lg mr-2">Left</button>
             <button type="button" data-toggle="modal" data-target="#modal1" 
             class="btn btn-danger btn-lg ml-2">Right</button>
-
        
         </div>
     </div>
@@ -258,12 +220,9 @@
     </div>
 </div>
     <!-- End Fixed Background IMG -->
-
-
     <!-- Emoji Navbar Second -->
     <a class="navbar bg-primary sticky-top emoji" href="#emoji" role="button"
     data-toggle="collapse"><i class="fas fa-plug"></i></a>
-
     <div class="collapse" id="emoji">
         <div class="container">
             <div class="row">
@@ -280,7 +239,6 @@
             <img src="img/emoji/poo.gif" alt="" class="w-100">
         </div>
     </div>
-
     <!-- Start Two Column Section -->
     <div class="container my-5">
         <div class="row py-4">
@@ -290,40 +248,27 @@
                
 <a href="#" class="btn btn-outline-dark btn-lg" target="_blank">The agency theme</a>          
                 </div>
-
                 <div class="col-lg-8"><img src="img/code.jpg" alt="" class="w-100"></div>
-
         </div>
     </div>
-
     <!-- End Two Column Section -->
-
-
     <!-- Start Jumbotron -->
     <div class="jumbotron py-5 mb-0">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-7 col-lg-8 col-xl-9 my-auto">
                     <h4>Some text inside jumbotron out here.</h4>
                 </div>
-
                 <div class="col-md-5 col-lg-4 col-xl-3 pt-4 pt-md-0"></div>
                 <a href="#" class="btn btn-primary btn-lg"> Contact Us Today</a>
-
             </div>
         </div>
     </div>
-
     <!-- End Jumbotron -->
-
-
     <!-- Start Footer -->
-
     <footer>
         <div class="container">
             <div class="row text-light text-center py-4 justify-content-center">
-
                    <div class="col-sm-10 col-md-8 col-lg-6">
                        <img src="img/airplane.svg" alt="">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi explicabo fugit corrupti maxime ab vitae cupiditate dolor, esse aliquam a laborum perferendis, tempore deleniti facere laudantium minus! Voluptates, numquam alias.</p>
@@ -336,24 +281,16 @@
                 
                 
                 </div>
-
             </div>
         </div>
     </footer>
     <!-- End Footer -->
-
-
     <!-- Start Socket -->
     <div class="socket text-light text-center py-3">
         <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
     </div>
-
     <!-- End Socket -->
-
-
-
     <!-- Script Source Files -->
-
     <!-- jQuery -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <!-- Bootstrap 4.5 JS -->
@@ -362,8 +299,6 @@
     <script src="js/popper.min.js"></script>
     <!-- Font Awesome -->
     <script src="js/all.min.js"></script>
-
     <!-- End Script Source Files -->
 </body>
-
 </html>
