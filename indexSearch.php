@@ -1,20 +1,17 @@
 <?php 
 include('inc/header.php');
 ?>
-<title>coderszine.com : Demo Filter Search Result with Ajax, PHP & MySQL</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
 <?php include('inc/container.php');?>
 <div class="container">
-	<h2>Example: Filter Search Result with Ajax, PHP & MySQL</h2>
+	<h2 class="text-center pt-4 pb-2">Filter Search Our Flying Crew!</h2>
 	<br>
 	<div class="row">		
-		<div class="form-group col-md-3">
+		<div class="form-group col-md-4 ">
 			<input type="text" class="search form-control" id="keywords" name="keywords" placeholder="By customer or item">			
 		</div>
-		<div class="form-group col-md-2">
+		<div class="form-group col-md-4">
 			<input type="button" class="btn btn-primary" value="Search" id="search" name="search" />
 		</div>
 		<div class="form-group col-md-4">

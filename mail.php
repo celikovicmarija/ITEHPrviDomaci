@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Send Mail From Localhost | CodingNepal</title>
+    <title>Vagabond's map</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- bootstrap cdn link -->
@@ -44,8 +44,14 @@
                             <div class="alert alert-success text-center">
                                 <?php echo "Your mail successfully sent to $recipient"?>
                             </div>
+ 
+                          
                            <?php
                            $sender = "";
+                           $subject="";
+                           $message="";
+                           $body="";
+                           $headers="";
                            }else{
                             ?>
                             <!-- display an alert message if somehow mail can't be sent -->

@@ -1,25 +1,35 @@
 </head>
-<body class="">
-<div role="navigation" class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="http://www.coderszine.com" class="navbar-brand">CODERSZINE.COM</a>
+  
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="col-12 text-right">
+            <div id="wrapper">
+			<div id="clock"></div>
+		</div>
+                <p><a href="tel:+000000000">We're one phone call away!</a></p>
+            </div>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://www.coderszine.com">Home</a></li>
-           
-          </ul>
-         
-        </div><!--/.nav-collapse -->
-      </div>
     </div>
-	
-	<div class="container" style="min-height:500px;">
-	
+    <!-- End Top Bar -->
+    <!-- Navigation -->
+    <nav class="navbar bg-light navbar-light navbar-expand-lg">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                
+                <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
+                <span class="align-baseline">Vagabond's map</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
+                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
