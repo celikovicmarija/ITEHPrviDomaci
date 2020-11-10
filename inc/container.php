@@ -1,18 +1,13 @@
-</head>
-  
-    <!-- Top Bar -->
-    <div class="top-bar">
+   <div class="top-bar">
         <div class="container">
             <div class="col-12 text-right">
-            <div id="wrapper">
-			<div id="clock"></div>
-		</div>
+            <?php 
+    include "clock_view.php";
+  ?>
                 <p><a href="tel:+000000000">We're one phone call away!</a></p>
             </div>
         </div>
     </div>
-    <!-- End Top Bar -->
-    <!-- Navigation -->
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
         <div class="container">
             <a href="index.html" class="navbar-brand">

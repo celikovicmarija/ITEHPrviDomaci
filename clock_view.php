@@ -14,11 +14,11 @@
 			}
 			
 			#clock {
-				width: 100%;
+				width: 50%;
 				color: black;
-				margin: 5px auto;
+				margin: 2px ;
 				text-align: left;
-				font-size: 30px;
+				font-size: 25px;
 			}
 			}
 		</style>
@@ -63,6 +63,7 @@
 	<body>
 		<div id="wrapper">
 			<div id="clock"></div>
+			
 		</div>
 	</body>
 </html>

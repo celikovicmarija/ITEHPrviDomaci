@@ -1,118 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
-
-    <title>Vagabond's map</title>
  
-      <style type="text/css">
-			body {
-				margin: 0;
-				padding: 0;
-			}
-			
-			#wrapper {
-				width: 100%;
-			}
-			
-			#clock {
-				width: 100%;
-                min-height: 15px;
-				margin: 0px auto;
-				text-align: left;
-				font-size: 1.2rem;
-			}
-		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-			var start_time;
-			var current_time;
-			
-			//gets current server time
-			var get_time = function () {
-				$.ajax({
-					type: 'GET',
-					url: 'timestamp.php',
-					data: ({ action : 'get_time' }),
-					success: (function (data) {
-						start_time = new Date(
-							data.year, 
-							data.month, 
-							data.day, 
-							data.hour, 
-							data.minute, 
-							data.second
-						);
-						$('#clock').html(current_time.toLocaleTimeString());
-					}),
-					dataType: 'json'
-				});
-			}
-			
-			//counts 0.25s
-			var cnt_time = function () {
-				current_time = new Date(start_time.getTime() + 250);
-				$('#clock').html(current_time.toLocaleTimeString());
-				start_time = current_time;
-			}
-			
-			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-			setInterval(get_time, 30250); //sync with server every 30,25 second
-			get_time();
-        </script>
-           <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <?php
-    
-        include "obrada.php";
-    
-    ?>
+<?php
+include "inc/header.php";
+include "obrada.php";
+?>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="container">
-            <div class="col-12 text-right">
-            <div id="wrapper">
-			<div id="clock"></div>
-		</div>
-                <p><a href="tel:+000000000">We're one phone call away!</a></p>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Bar -->
-    <!-- Navigation -->
-    <nav class="navbar bg-light navbar-light navbar-expand-lg">
-        <div class="container">
-            <a href="index.html" class="navbar-brand">
-                
-                <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
-                <span class="align-baseline">Vagabond's map</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
-                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+<?php 
+include("inc/container.php");?>
     </nav>
-    <h1 class="text-center pt-4 pb-4">Forma za manipulaciju sa API-em</h1>
+    <h1 class="text-center pt-4 pb-4">CRUD Operations</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 mail-form">
-    <!-- Radio button grupa za odabir tipa tabele iz baze koji želimo da menjamo -->
+
     <form action="" method="post">
         <div id="odabir_tabele" class="text-center pt-4 pb-1">
             <input type="radio" name="odabir_tabele" id="radio_avion" value="avion">
@@ -127,9 +32,6 @@
             <label for="radio_ruta">ruta</label>
         </div>
 
-
-        <!-- Radio button grupa za odabir tipa HTTP zahteva koji želimo da pošaljemo -->
-
         <div id="http_zahtev" class="text-center pt-1 pb-2">
             <input type="radio" name="http_zahtev" id="get" value="get">
             <label for="get">GET</label>
@@ -140,9 +42,6 @@
             <input type="radio" name="http_zahtev" id="delete" value="delete">
             <label for="delete">DELETE</label>
         </div>
-
-        <!-- Div sekcija za prikaz odgovora za GET zahtev sa servera
-        HTML tag <pre></pre> nam omogućava da ispisuje prethodno formatiran tekst, što nam je potrebno za pretty prikaz JSON-a -->
 
         <pre id="get_odgovor" class="text-center pt-4 pb-4"></pre>
 
@@ -179,7 +78,7 @@
 
 
         </div>
-        <div id="pilot_post"class="text-center pt-4 pb-4">
+        <div id="pilot_post" class="text-center pt-4 pb-4">
             <input type="text" name="jmbg_pilot" id="jmbg_pilot" placeholder="Unesite jmbg pilota">
             <br>
             <input type="text" name="iddrzavljanstvo_pilot" id="iddrzavljanstvo_pilot" placeholder="Unesite drzavljanstvo pilota">
@@ -299,14 +198,9 @@
         </div>
 
 
-        <!-- Div sekcija za ispisivanje grešaka u slučaju pogrešne selekcije radio button-a -->
-
         <div id="greska"class="text-center pt-4 pb-4">
 
-            <!-- Div sekcija za za dugme preko kojeg će se slati zahtevi -->
-
         </div>
-        <!--<div id="submit"> <button type="button">Posalji zahtev</button>        </div>-->
         
         <div id="submit" class="text-center pt-4 pb-4">
             <input type="submit" name="posalji" id="posalji" value="Posalji zahtev">
@@ -315,187 +209,106 @@
     </div>
         </div>
     </div>
-    <footer>
-        <div class="container">
-            <div class="row text-light text-center py-4 justify-content-center">
-                   <div class="col-sm-10 col-md-8 col-lg-6">
-                       <img src="img/airplane.svg" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi explicabo fugit corrupti maxime ab vitae cupiditate dolor, esse aliquam a laborum perferendis, tempore deleniti facere laudantium minus! Voluptates, numquam alias.</p>
-                <ul class="social pt-3">
-                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-                
-                
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-    <!-- Start Socket -->
-    <div class="socket text-light text-center py-3">
-        <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
-    </div>
-    <!-- End Socket -->
-    <!-- Script Source Files -->
-    <!-- jQuery -->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap 4.5 JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Popper JS -->
-    <script src="js/popper.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="js/all.min.js"></script>
-
-</body>
-
+    <?php 
+include "inc/footer.php"
+?>
 
 
 <script>
-    // kreiramo niz blokova, odnosno niz svih id vrednosti div sekcija
     var nizBlokova = ["get_odgovor", "avion_post", "drzava_post", "let_post", "pilot_post", "ruta_post", "brisanje_reda", "avion_put", "drzava_put",
         "let_put", "pilot_put", "ruta_put", "greska", "brisanje_reda_avion","brisanje_reda_drzava","brisanje_reda_let","brisanje_reda_pilot","brisanje_reda_ruta"];
-
-    //na samom početku želimo da sakrijemo sve blokove, dok korisnik ne odabere tip tabele i HTTP zahteva
     function skloniBlokove() {
-        //prolazimo kroz niz blokova
         for (const blok of nizBlokova) {
-            //i vrednost display atributa u okviru css-a postavljamo na none, kako se ne bi prikazivali
             document.getElementById(blok).style.display = "none";
         }
     };
-    //pozivamo funkciju da se izvrši
     skloniBlokove();
 
 
-    //definišemo event handler-e za svaki klik na formi
-    //gde klikom na neki radio button za HTTP zahtev i određenu tabelu, želimo da se prikaže DIV element za tu kombinaciju
-    //kombinacija je definisana u okviru prikaziBlok funkcije
     $("input[name=http_zahtev]").on("click", prikaziBlok);
     $("input[name=odabir_tabele]").on("click", resetHTTP);
     $("button").on("click", posaljiZahtev);
 
-    //prikaziBlok funkcija koristeći switch prolazi kroz sve tipove zahteva koji mogu biti odabrani
-    //$("input[name=http_zahtev]:checked")[0].id je jQuery funkcija koja nam omogućava da 
-    // dođemo do svih čekiranih input polja čiji je name http_zahtev 
-    // i da pristupimo njegovom id-u jer su kao id postavljene vrednosti get post put delete 
     function prikaziBlok() {
         console.log()
         switch ($("input[name=http_zahtev]:checked")[0].id) {
             case "get":
-                // u slučaju da odaberemo get, sakrićemo sve prethodno prikazane div-ove
                 skloniBlokove();
-                //obrisaćemo unutrašnji HTML get_odgovor bloka 
                 document.getElementById("get_odgovor").innerHTML = "";
-                // i prikazati ga da bude vidljiv, promenom atributa display sa none na block
                 document.getElementById(nizBlokova[0]).style.display = "block";
                 break;
             case "post":
-                // u slučaju da odaberemo post, sakrićemo sve prethodno prikazane div-ove
                 skloniBlokove();
-                //proverićemo da li je odabrana tabela novosti ili kategorije
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    //ako nije, želimo da se prikaže div blok za grešku i ispiše poruka da mora biti obeležena greška tabela 
                     document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
                     document.getElementById(nizBlokova[12]).style.display = "block";
                 } else {
-                    //ako jeste odabrana tabela, odnosno length nije 0
-                    //uzećemo koja je to tabela, odnosno id tog radio button-a
+
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
 
                     if (tabela == "radio_avion") {
-                        //i u slučaju da je u pitanju tabela kategorije
-                        //prikazaćemo post formu za kategorije
+
                         document.getElementById(nizBlokova[1]).style.display = "block";
                     } else if (tabela == "radio_drzava") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[2]).style.display = "block";
                     }
                     else if (tabela == "radio_let") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[3]).style.display = "block";
                     }
                     else if (tabela == "radio_pilot") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[4]).style.display = "block";
                     }
                     else if (tabela == "radio_ruta") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[5]).style.display = "block";
                     }
                 }
 
                 break;
             case "put":
-                // u slučaju da odaberemo put, sakrićemo sve prethodno prikazane div-ove
                 skloniBlokove();
-                //proverićemo da li je odabrana tabela novosti ili kategorije
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    //ako nije, želimo da se prikaže div blok za grešku i ispiše poruka da mora biti obeležena greška tabela 
                     document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
                     document.getElementById(nizBlokova[12]).style.display = "block";
                 } else {
-                    //ako jeste odabrana tabela, odnosno length nije 0
-                    //uzećemo koja je to tabela, odnosno id tog radio button-a
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
 
                     if (tabela == "radio_avion") {
-                        //i u slučaju da je u pitanju tabela kategorije
-                        //prikazaćemo post formu za kategorije
                         document.getElementById(nizBlokova[7]).style.display = "block";
                     } else if (tabela == "radio_drzava") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[8]).style.display = "block";
                     }
                     else if (tabela == "radio_let") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[9]).style.display = "block";
                     }
                     else if (tabela == "radio_pilot") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[10]).style.display = "block";
                     }
                     else if (tabela == "radio_ruta") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[11]).style.display = "block";
                     }
                 }
                 break;
             case "delete":
-                //poslednja opcija nam je prikaz bloka za brisanje elemenata iz određene tabele
                 skloniBlokove();
-                //proverićemo da li je odabrana tabela novosti ili kategorije
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    //ako nije, želimo da se prikaže div blok za grešku i ispiše poruka da mora biti obeležena greška tabela 
                     document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
                     document.getElementById(nizBlokova[12]).style.display = "block";
                 } else {
-
-                    //ako jeste odabrana tabela, odnosno length nije 0
-                    //prikazaćemo put formu za kategorije
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
                     document.getElementById(nizBlokova[6]).style.display = "block";
 
                     if (tabela == "radio_avion") {
-                        //i u slučaju da je u pitanju tabela kategorije
-                        //prikazaćemo post formu za kategorije
                         document.getElementById(nizBlokova[13]).style.display = "block";
                     } else if (tabela == "radio_drzava") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[14]).style.display = "block";
                     }
                     else if (tabela == "radio_let") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[15]).style.display = "block";
                     }
                     else if (tabela == "radio_pilot") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[16]).style.display = "block";
                     }
                     else if (tabela == "radio_ruta") {
-                        //u suprotnom prikazaćemo post formu za novosti
                         document.getElementById(nizBlokova[17]).style.display = "block";
                     }
                 }
@@ -504,7 +317,6 @@
                 break;
         }
     }
-    //funkcija resetHTTP nam samo resetuje odabrane HTTP zahteve nakon promene odabrane tabele  
     function resetHTTP() {
         skloniBlokove();
         $("input[name=http_zahtev]").prop('checked', false);

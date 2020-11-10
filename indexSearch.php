@@ -3,6 +3,7 @@ include('inc/header.php');
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/search.js"></script>
+</head>
 <?php include('inc/container.php');?>
 <div class="container">
 	<h2 class="text-center pt-4 pb-2">Filter Search Our Flying Crew!</h2>

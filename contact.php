@@ -64,185 +64,65 @@ if(isset($_POST['submitted'])) {
     <link rel="stylesheet" href="css/style.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
-    <style type="text/css">
-			body {
-				margin: 0;
-				padding: 0;
-			}
-			
-			#wrapper {
-				width: 100%;
-			}
-			
-			#clock {
-				width: 100%;
-                min-height: 15px;
-				margin: 0px auto;
-				text-align: left;
-				font-size: 1.2rem;
-			}
-		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-			var start_time;
-			var current_time;
-			
-			//gets current server time
-			var get_time = function () {
-				$.ajax({
-					type: 'GET',
-					url: 'timestamp.php',
-					data: ({ action : 'get_time' }),
-					success: (function (data) {
-						start_time = new Date(
-							data.year, 
-							data.month, 
-							data.day, 
-							data.hour, 
-							data.minute, 
-							data.second
-						);
-						$('#clock').html(current_time.toLocaleTimeString());
-					}),
-					dataType: 'json'
-				});
-			}
-			
-			//counts 0.25s
-			var cnt_time = function () {
-				current_time = new Date(start_time.getTime() + 250);
-				$('#clock').html(current_time.toLocaleTimeString());
-				start_time = current_time;
-			}
-			
-			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-			setInterval(get_time, 30250); //sync with server every 30,25 second
-			get_time();
-		</script>
+
 </head>
 
 <body>
-	  <!-- Top Bar -->
-	  <div class="top-bar">
-        <div class="container">
-            <div class="col-12 text-right">
-            <div id="wrapper">
-			<div id="clock"></div>
-		</div>
-                <p><a href="tel:+000000000">We're one phone call away!</a></p>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Bar -->
-    <!-- Navigation -->
-    <nav class="navbar bg-light navbar-light navbar-expand-lg">
-        <div class="container">
-            <a href="index.html" class="navbar-brand">
-                
-                <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
-                <span class="align-baseline">Vagabond's map</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
-                    <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- @begin contact -->
+<?php 
+include("inc/container.php");?>
 	<div id="contact" class="section">
 		<div class="container content w-100 ">
 		
 	        <?php if(isset($emailSent) && $emailSent == true) { ?>
-                <p class="info">Your email was sent. Thank you for your input!</p>
+                <p class="info pb-5">Your email was sent. Thank you for your input!</p>
             <?php } else { ?>
             
 				<div class="desc">
 					<h2>Contact Us</h2>
 					
-					<p class="desc">Please use the contact form below to send us any information we may need. It is required you place an e-mail, although if you do not need us to respond feel free to input noreply@yoursite.com.</p>
-				</div>
+					<p class="desc">
+						We'd like to hear your thoughts! Beware that we do need to know some basic info about you, so we kindly ask you to fill or the fields. Cheers!
+					</div>
 				
-				<div id="contact-form">
+				<div id="contact-form ">
 					<?php if(isset($hasError) || isset($captchaError) ) { ?>
                         <p class="alert">Error submitting the form</p>
                     <?php } ?>
 				
 					<form id="contact-us" action="contact.php" method="post">
-						<div class="formblock">
-							<label class="screen-reader-text">Name</label>
+						<div class="formblock w-100">
+							<label class="screen-reader-text w-100">Name</label>
 							<input type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="txt requiredField" placeholder="Name:" />
 							<?php if($nameError != '') { ?>
 								<br /><span class="error"><?php echo $nameError;?></span> 
 							<?php } ?>
 						</div>
                         
-						<div class="formblock">
-							<label class="screen-reader-text">Email</label>
+						<div class="formblock w-100">
+							<label class="screen-reader-text w-100">Email</label>
 							<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="txt requiredField email" placeholder="Email:" />
 							<?php if($emailError != '') { ?>
 								<br /><span class="error"><?php echo $emailError;?></span>
 							<?php } ?>
 						</div>
                         
-						<div class="formblock">
+						<div class="formblock w-100">
 							<label class="screen-reader-text">Message</label>
-							 <textarea name="comments" id="commentsText" class="txtarea requiredField" placeholder="Message:"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
+							 <textarea name="comments" id="commentsText" class="txtarea requiredField w-100" placeholder="Message:"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
 							<?php if($commentError != '') { ?>
 								<br /><span class="error"><?php echo $commentError;?></span> 
 							<?php } ?>
 						</div>
                         
-							<button name="submit" type="submit" class="subbutton">Send us Mail!</button>
+							<button  name="submit" type="submit" type="button" data-toggle="modal" data-target="#modal1"
+             class="btn btn-primary btn-lg mr-2 pb-2">Send us Mail!</button>
 							<input type="hidden" name="submitted" id="submitted" value="true" />
 					</form>			
 				</div>
 				
 			<?php } ?>
 		</div>
-	</div><!-- End #contact -->
+	</div>
 	<?php 
 include "inc/footer.php"
 ?>
-	
-<script type="text/javascript">
-	<!--//--><![CDATA[//><!--
-	$(document).ready(function() {
-		$('form#contact-us').submit(function() {
-			$('form#contact-us .error').remove();
-			var hasError = false;
-			$('.requiredField').each(function() {
-				if($.trim($(this).val()) == '') {
-					var labelText = $(this).prev('label').text();
-					$(this).parent().append('<span class="error">Your forgot to enter your '+labelText+'.</span>');
-					$(this).addClass('inputError');
-					hasError = true;
-				} else if($(this).hasClass('email')) {
-					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-					if(!emailReg.test($.trim($(this).val()))) {
-						var labelText = $(this).prev('label').text();
-						$(this).parent().append('<span class="error">Sorry! You\'ve entered an invalid '+labelText+'.</span>');
-						$(this).addClass('inputError');
-						hasError = true;
-					}
-				}
-			});
-			if(!hasError) {
-				var formInput = $(this).serialize();
-				$.post($(this).attr('action'),formInput, function(data){
-					$('form#contact-us').slideUp("fast", function() {				   
-						$(this).before('<p class="tick"><strong>Thanks!</strong> Your email has been delivered. Huzzah!</p>');
-					});
-				});
-			}
-			
-			return false;	
-		});
-	});
-	//-->!]]>
-</script>
