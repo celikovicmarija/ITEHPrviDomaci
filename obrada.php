@@ -31,12 +31,12 @@
         }   
         //Ne radi iz nekog razloga NE RADI
         //DRZAVA, radi samo treba da se ponovo ubace sve vrednosti, auto increment ne radi
-       else if($_POST["id_drzava"]!=null && $_POST["naziv_drzava"]!=null ){
+       else if($_POST["d_drzava"]!=null && $_POST["naziv_drzava"]!=null ){
           /* echo "Hello";
            $naziv=$_POST["naziv_drzava"];
            $id=$_POST["id_drzava"];
             $niz = ["DrzavaID"=>$id, "NazivDrzave"=> "'".$naziv."'"];*/
-            $success=Drzava::add($_POST["id_drzava"],$_POST["naziv_drzava"], $conn);
+            $success=Drzava::add($_POST["naziv_drzava"],$_POST["d_drzava"], $conn);
             if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
             } else{?>

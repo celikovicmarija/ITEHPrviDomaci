@@ -55,9 +55,10 @@ include("inc/container.php");?>
             <br>
         </div>
 
-        <div id="drzava_post"class="text-center pt-4 pb-4">
-            <input type="text" name="id_drzava" placeholder="Unesite id drzave">
-            <input type="text" name="naziv_drzava" placeholder="Unesite naziv drzave">
+        <div id="drzava_post" class="text-center pt-4 pb-4">
+          
+            <input type="text" name="naziv_drzava" id="naziv_drzava" placeholder="Unesite naziv drzave">
+            <input type="text" name="d_drzava" id="d_drzava" placeholder="Unesite id drzave">
             <br>
         </div>
 

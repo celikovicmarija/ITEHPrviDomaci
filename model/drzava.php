@@ -37,6 +37,7 @@ class Drzava{
     public static function add($DrzavaID,$NazivDrzave, mysqli $conn)
     {
         $q = "INSERT INTO drzava(DrzavaID, NazivDrzave) values('$DrzavaID','$NazivDrzave')";
+       // echo $q;
         return $conn->query($q);
     }
 
