@@ -164,7 +164,7 @@
         else if($_POST["idruta_let_put"]!=null && $_POST["idpilot_let_put"]!=null && $_POST["drzavljanstvo_let_put"]!=null && $_POST["regbravion_let_put"]!=null && $_POST["datum_let_put"]!=null && $_POST["trajanje_let_put"]!=null){
             $niz = [ $_POST["idpilot_let_put"], $_POST["drzavljanstvo_let_put"],$_POST["regbravion_let_put"], "NOW()", $_POST["trajanje_let_put"]];
            
-            $success=Let::update($_POST["idruta_let_put"], $_POST["idpilot_let_put"],$_POST["drzavljanstvo_let_put"],$_POST["regbravion_let_put"],"NOW()",$_POST["trajanje_let_put"],$conn);
+            $success=Let::update($_POST["idruta_let_put"], $_POST["idpilot_let_put"],$_POST["drzavljanstvo_let_put"],$_POST["regbravion_let_put"],$_POST["datum_let_put"],$_POST["trajanje_let_put"],$conn);
             if($success){?> 
                 <script> alert('Vrednosti izmenjene');</script><?php
             } else{?>

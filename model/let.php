@@ -46,14 +46,13 @@ class let{
     public static function add($BrojRute, $PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta,$TrajanjeLeta, mysqli $conn)
     {
         $q = "INSERT INTO let(BrojRute, PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta) values('$BrojRute','$PilotID','$Drzavljanstvo', '$RegBroj','$DatumLeta','$TrajanjeLeta')";
-        echo $q;
         return $conn->query($q);
         
     }
 
     public static function update($BrojRute,$PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta, $TrajanjeLeta, mysqli $conn)
     {
-        $q = "UPDATE let set PilotID='$PilotID', Drzavljanstvo='$Drzavljanstvo', RegBroj='$RegBroj', DatumLeta='$DatumLeta', TrajanjeLeta='$TrajanjeLeta' where BrojRute=$BrojRute";
+        $q = "UPDATE let SET BrojRute=$BrojRute, PilotID=$PilotID, Drzavljanstvo=$Drzavljanstvo, RegBroj=$RegBroj, DatumLeta='$DatumLeta', TrajanjeLeta=$TrajanjeLeta where BrojRute=$BrojRute";
         return $conn->query($q);
     }
 }
