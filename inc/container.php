@@ -1,11 +1,14 @@
    <div class="top-bar">
         <div class="container">
-            <div class="col-12 text-right">
+            <div class="row">
+            <div class="col">
             <?php 
     include "clock_view.php";
-  ?>
+  ?> </div><div class="col text-right">
                 <p><a href="tel:+000000000">We're one phone call away!</a></p>
+                </div>
             </div>
+
         </div>
     </div>
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
