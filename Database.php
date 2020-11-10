@@ -1,5 +1,6 @@
-<?php
 
+<?php
+//Maybe could be deleted?
 class Database
 {
     private $hostname = "localhost";
@@ -24,7 +25,7 @@ class Database
             exit();
         }
         $this->dblink->set_charset("utf8");
-    }
+    }/*
 
     function ExecuteQuery($query){
         $this->result = $this->dblink->query($query);
@@ -110,7 +111,7 @@ class Database
         }
     }
 
-
+*/
 }
 
 ?>
