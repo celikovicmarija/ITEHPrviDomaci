@@ -11,61 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
-    <style type="text/css">
-			body {
-				margin: 0;
-				padding: 0;
-			}
-			
-			#wrapper {
-				width: 100%;
-			}
-			
-			#clock {
-				width: 100%;
-                min-height: 15px;
-				margin: 0px auto;
-				text-align: left;
-				font-size: 1.2rem;
-			}
-		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript">
-			var start_time;
-			var current_time;
-			
-			//gets current server time
-			var get_time = function () {
-				$.ajax({
-					type: 'GET',
-					url: 'timestamp.php',
-					data: ({ action : 'get_time' }),
-					success: (function (data) {
-						start_time = new Date(
-							data.year, 
-							data.month, 
-							data.day, 
-							data.hour, 
-							data.minute, 
-							data.second
-						);
-						$('#clock').html(current_time.toLocaleTimeString());
-					}),
-					dataType: 'json'
-				});
-			}
-			
-			//counts 0.25s
-			var cnt_time = function () {
-				current_time = new Date(start_time.getTime() + 250);
-				$('#clock').html(current_time.toLocaleTimeString());
-				start_time = current_time;
-			}
-			
-			setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-			setInterval(get_time, 30250); //sync with server every 30,25 second
-			get_time();
-		</script>
 </head>
 <body>
       
@@ -73,9 +18,9 @@
     <div class="top-bar">
         <div class="container">
             <div class="col-12 text-right">
-            <div id="wrapper">
-			<div id="clock"></div>
-		</div>
+            <?php 
+    include "clock_view.php";
+  ?>
                 <p><a href="tel:+000000000">We're one phone call away!</a></p>
             </div>
         </div>
@@ -84,9 +29,9 @@
     <!-- Navigation -->
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 
-                <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
+                <img src="img/airplane.svg" alt="Logo" title="Logo" href="index.php"></a>
                 <span class="align-baseline">Vagabond's map</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -107,16 +52,16 @@
         <!-- Carousel Content -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/carousel/1.png" alt="" class="w-100">
+                <img src="img/carousel/3.png" alt="" class="w-100">
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-8 bg-custom d-none d-md-block py-3 px-0">
                                 <h1>Vagabond's Map</h1>
                                 <div class="border-top border-primary w-50 mx-auto my-3">
-                                    <h3 class="pb-3">Experience the other perspective</h3>
-                                    <a href="#" class="btn btn-danger btn-lg mr-2">View Demo</a>
-                                    <a href="#" class="btn btn-primary btn-lg ml-2">Start Now</a>
+                                    <h3 class="pb-2 pt-2">Experience the other perspective</h3>
+                                    <a href="https://www.google.com/maps" target="_blank" class="btn btn-danger btn-lg mr-2">View Demo</a>
+                                    <a href="services.php" target="_blank" class="btn btn-primary btn-lg ml-2">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -130,22 +75,21 @@
                         <div class="row justify-content-end text-right">
                             <div class="col-8 bg-custom d-none d-lg-block py-3 px-0 pr-3">
                                 <p class="lead pb-3">Ready to start another chapter?</p>
-                                <a href="#" class="btn btn-danger btn-lg mr-2">Here!</a>
+                                <a href="services.php" class="btn btn-danger btn-lg mr-2">Here!</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="img/carousel/3.png" alt="" class="w-100">
-                <div class="carousel-caption">
-                    <div class="carousel-caption">
-                        <div class="container">
+                <img src="img/carousel/1.png" alt="" class="w-100">
+                <div class="carousel-caption  pb-15">
+                        <div class="container ">
                             <div class="row justify-content-start text-left">
-                                <div class="col-7 bg-custom d-none d-lg-block py-3 px-0 pl-3">
-                                    <h3 class="pb-3">Words carry meaning</h3>
+                                <div class="col-7 bg-custom d-none d-lg-block py-3 px-0 pl-3 ">
+                                    <h3 class="pb-15">Words carry meaning</h3>
                                     <p class="lead">THINK BEFORE SAYING IT OUT LOUD.</p>
-                                    <a href="#" class="btn btn-primary btn-lg">Start Now</a>
+                                    <a href="contact.php" class="btn btn-primary btn-lg pb-15">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -225,17 +169,17 @@
     <div class="collapse" id="emoji">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-3"><img src="img/emoji/panda.gif" alt="" class="w-100"></div>
-                <div class="col-sm-6 col-md-3"><img src="img/emoji/poo.gif" alt="" class="w-100"></div>
-                <div class="col-sm-6 col-md-3"><img src="img/emoji/unicorn.gif" alt="" class="w-100"></div>
-                <div class="col-sm-6 col-md-3"><img src="img/emoji/chicken.gif" alt="" class="w-100"></div>
+                <div class="col-sm-6 col-md-3"><img src="https://media.giphy.com/media/toelXGUsYD6vtCN408/giphy.gif" alt="" class="w-100"></div>
+                <div class="col-sm-6 col-md-3"><img src="https://media.giphy.com/media/3oEjHXMBQxGYk6SMW4/giphy.gif" alt="" class="w-100 pt-4"></div>
+                <div class="col-sm-6 col-md-3"><img src="https://media.giphy.com/media/XshavtISo6XVS/giphy.gif" alt="" class="w-100  pt-3"></div>
+                <div class="col-sm-6 col-md-3"><img src="https://media.giphy.com/media/l46Cfx5YkHJCU5qWQ/giphy.gif" alt="" class="w-100"></div>
             </div>
         </div>
     </div>
     <!-- Modal Popup -->
     <div class="modal fade" id="modal1">
         <div class="modal-dialog">
-            <img src="img/emoji/poo.gif" alt="" class="w-100">
+            <img src="https://media.giphy.com/media/14wXMGbHjXK2k0/giphy.gif" alt="" class="w-100">
         </div>
     </div>
     <!-- Start Two Column Section -->
@@ -247,7 +191,7 @@
                
 <a href="#" class="btn btn-outline-dark btn-lg" target="_blank">The agency theme</a>          
                 </div>
-                <div class="col-lg-8"><img src="img/code.jpg" alt="" class="w-100"></div>
+                <div class="col-lg-8"><img src="https://media.giphy.com/media/gFKYJM8PDJ4zdGMyPg/giphy.gif" alt="" class="w-100"></div>
         </div>
     </div>
     <!-- End Two Column Section -->
@@ -265,39 +209,6 @@
     </div>
     <!-- End Jumbotron -->
     <!-- Start Footer -->
-    <footer>
-        <div class="container">
-            <div class="row text-light text-center py-4 justify-content-center">
-                   <div class="col-sm-10 col-md-8 col-lg-6">
-                       <img src="img/airplane.svg" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi explicabo fugit corrupti maxime ab vitae cupiditate dolor, esse aliquam a laborum perferendis, tempore deleniti facere laudantium minus! Voluptates, numquam alias.</p>
-                <ul class="social pt-3">
-                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-                
-                
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-    <!-- Start Socket -->
-    <div class="socket text-light text-center py-3">
-        <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
-    </div>
-    <!-- End Socket -->
-    <!-- Script Source Files -->
-    <!-- jQuery -->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap 4.5 JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Popper JS -->
-    <script src="js/popper.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="js/all.min.js"></script>
-    <!-- End Script Source Files -->
-</body>
-</html>
+    <?php 
+include "inc/footer.php"
+?>

@@ -59,7 +59,6 @@ if(isset($_POST['submitted'])) {
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Vagabond's map</title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<link href="styles.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -148,7 +147,6 @@ if(isset($_POST['submitted'])) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
                     <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
@@ -208,42 +206,9 @@ if(isset($_POST['submitted'])) {
 			<?php } ?>
 		</div>
 	</div><!-- End #contact -->
-	<footer>
-        <div class="container">
-            <div class="row text-light text-center py-4 justify-content-center">
-                   <div class="col-sm-10 col-md-8 col-lg-6">
-                       <img src="img/airplane.svg" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi explicabo fugit corrupti maxime ab vitae cupiditate dolor, esse aliquam a laborum perferendis, tempore deleniti facere laudantium minus! Voluptates, numquam alias.</p>
-                <ul class="social pt-3">
-                    <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-                
-                
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer -->
-    <!-- Start Socket -->
-    <div class="socket text-light text-center py-3">
-        <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
-    </div>
-    <!-- End Socket -->
-    <!-- Script Source Files -->
-    <!-- jQuery -->
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap 4.5 JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Popper JS -->
-    <script src="js/popper.min.js"></script>
-    <!-- Font Awesome -->
-    <script src="js/all.min.js"></script>
-    <!-- End Script Source Files -->
-</body>
-</html>
+	<?php 
+include "inc/footer.php"
+?>
 	
 <script type="text/javascript">
 	<!--//--><![CDATA[//><!--

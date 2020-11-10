@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Simple Ajax Clock</title>
+		<title>What's the time?</title>
 		<style type="text/css">
 			body {
 				margin: 0;
@@ -10,15 +10,16 @@
 			}
 			
 			#wrapper {
-				width: 100%;
+				width: 50%
 			}
 			
 			#clock {
-				width: 50%;
-				min-height: 100px;
-				margin: 50px auto;
-				text-align: center;
-				font-size: 85px;
+				width: 100%;
+				color: black;
+				margin: 5px auto;
+				text-align: left;
+				font-size: 30px;
+			}
 			}
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

@@ -68,7 +68,7 @@
             exit();
         }   
         //////////UPDATE 
-        //AVION, ne radi
+        //AVION
         else if($_POST["regbr_avion"]!=null && $_POST["naziv_avion_put"]!=null && $_POST["putnici_avion_put"]!=null && $_POST["godproizvodnje_avion_put"]!=null){
             $niz = ["'".$_POST["naziv_avion_put"]."'", $_POST["putnici_avion_put"], $_POST["godproizvodnje_avion_put"]];
             echo "Ovde sam";
@@ -94,7 +94,6 @@
         }  
         //////
         //LET
-        //ne dozvoljava update vremena
         else if($_POST["idruta_let_put"]!=null && $_POST["idpilot_let_put"]!=null && $_POST["drzavljanstvo_let_put"]!=null && $_POST["regbravion_let_put"]!=null && $_POST["datum_let_put"]!=null && $_POST["trajanje_let_put"]!=null){
             $niz = [ $_POST["idpilot_let_put"], $_POST["drzavljanstvo_let_put"],$_POST["regbravion_let_put"], "NOW()", $_POST["trajanje_let_put"]];
             if($mydb->update("let","BrojRute", $_POST["idruta_let_put"],[ "PilotID", "Drzavljanstvo", "RegBroj", "DatumLeta", "TrajanjeLeta"], $niz)){
@@ -206,15 +205,6 @@
         }else {
             if( $_POST["odabir_tabele"]!= null){
                  $tabela = $_POST["odabir_tabele"];
-            
-              ?>  <script>
-                  console.log('Hello')
-                $.getJSON("http://localhost:80/rest/api/novosti", function(data){
-                    //postavljamo unutrašnji HTML div bloka get_odgovor na pretty string reprezentaciju JSON objekta
-                    //string reprezentacija je mogla i da se postavi samo sa JSON.stringify(data)
-                    // ali postavljamo i parametre null i 2 kako bi prikaz JSONa bio čitljiv
-                    document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
-                });</script>   <?php
                   $result=  $mydb->select($tabela, "*", null, null, null);
          }
            

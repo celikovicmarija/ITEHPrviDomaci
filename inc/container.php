@@ -25,7 +25,6 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
                     <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>

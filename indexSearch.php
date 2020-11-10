@@ -31,7 +31,7 @@ include('inc/header.php');
         <thead>
             <tr>
 				<th>JMBG</th>
-				<th>Drzavljanstvo</th>
+				<th>Državljanstvo</th>
 				<th>Ime</th>
 				<th>Prezime</th>
 				<th>DatumRodjenja</th>

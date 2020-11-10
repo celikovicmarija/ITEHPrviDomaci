@@ -110,7 +110,7 @@ body {
   /*===== FIXED BACKGROUND IMG =====*/
   
   .fixed{
-      background-image: url('../img/matrix.jpg');
+      background-image: url('https://media.giphy.com/media/l1J9LIsJB4xHMzLLq/giphy.gif');
       position: fixed;
     
   }
@@ -121,7 +121,7 @@ body {
   
   /*-- Emoji Navbar --*/
   .emoji {
-    background-image: linear-gradient(to right, #4981b3, #ac2615);
+    background-image: linear-gradient(to left, #4981b3, #ac2615);
     min-height: 0!important;
     padding: .4rem 0 !important;
     }
@@ -221,26 +221,7 @@ body {
             font-size: .85rem;
         }
   }
-  
-  
-  /*============ BOOTSTRAP BREAK POINTS:
-  
-  Extra small (xs) devices (portrait phones, less than 576px)
-  No media query since this is the default in Bootstrap
-  
-  Small (sm) devices (landscape phones, 576px and up)
-  @media (min-width: 576px) { ... }
-  
-  Medium (md) devices (tablets, 768px and up)
-  @media (min-width: 768px) { ... }
-  
-  Large (lg) devices (desktops, 992px and up)
-  @media (min-width: 992px) { ... }
-  
-  Extra (xl) large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) { ... }
-  
-  =============*/
+
   
   /*-- Bootstrap Mobile Gutter Fix --*/
   .row, .container-fluid {
@@ -276,45 +257,27 @@ body {
     transform: translateZ(0);
     will-change: transform;
   }
-  /*----------------FORMMMMMMMMMMMMMMMMMMMMMMM*/
-  /*Contact sectiom*/
-  body{
-    background-color: white;
+  
+
+/** KOntakt/
+/* Doc styles */
+#contact { width: 850px; margin-left: 80px; background: #eef4f9; border: 1px solid #c6d2dd; margin-top: 35px; padding: 40px 25px; }
+.container{
+    vertical-align: middle;
 }
-.contact{
-    padding: 4%;
-    height: 400px;
-}
-.col-md-3{
-    background: white;
-    padding: 4%;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-}
-.contact-info{
-    margin-top:10%;
-}
-.contact-info img{
-    margin-bottom: 15%;
-}
-.contact-info h2{
-    margin-bottom: 10%;
-}
-.col-md-9{
-    background: #fff;
-    padding: 3%;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-}
-.contact-form label{
-    font-weight:600;
-}
-.contact-form button{
-    background: #25274d;
-    color: #fff;
-    font-weight: 600;
-    width: 25%;
-}
-.contact-form button:focus{
-    box-shadow:none;
-}
+#contact .desc h2 { font-weight: normal; letter-spacing: -0.03em; color: #444; font-size: 2.4em; margin-bottom: 8px; }
+
+#contact .desc p {  font-size: 1.2em; color: #333; line-height: 1.3em; margin-bottom: 15px; }
+
+#contact .formblock { display: block; margin-bottom: 11px; }
+#contact .formblock label { font-size: 1.1em; display: block; font-style: italic; font-weight: normal; color: #232323; color: #5f6d7a; }
+
+#contact .formblock .txt { padding: 4px 6px; font-size: 1.6em;color: #666; width: 330px; }
+#contact .formblock .txtarea { font-size: 1.5em;padding: 3px 5px; color: #666; width: 330px; height: 140px; }
+
+#contact .formblock .error {font-size: 1.2em; font-style: normal;  color: #9d3131; }
+#contact .info {font-size: 1.3em; color: #59913d; margin-bottom: 10px; }
+
+#contact p.tick {  font-style: italic; font-size: 1.2em; color: #3e669c; }
+
+#contact .subbutton { padding: 3px 7px; font-size: 1.1em; font-weight: bold; color: #565656; }

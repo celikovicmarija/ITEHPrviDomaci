@@ -101,7 +101,6 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="services.php" class="nav-link">Services</a></li>
                     <li class="nav-item"><a href="indexSearch.php" class="nav-link">Looking for something?</a></li>
                     <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
@@ -512,46 +511,5 @@
 
     }
 
-    //funkcija posaljiZahtev obrađuje pomoću AJAX-a zahteve koje šaljemo ka serveru
-    function posaljiZahtev(){
-        console.log('Zahtev')
-        //na samom početku nam je bitno da su selektovani i zahtev i tabela
-        if($("input[name=odabir_tabele]:checked").length!=0 && $("input[name=http_zahtev]:checked").length!=0){
-            //ako jesu nastavljamo sa obradom zahteva
-            //pamtimo koja je tabela u pitanju
-            var tabela = $("input[name=odabir_tabele]:checked")[0].id;
-            console.log(" eee"+tabela)
-            //i ponovo  kroz switch prolazimo i obrađujemo svaki zahtev
-            switch ( $("input[name=http_zahtev]:checked")[0].id){
-                case "get":
-                //kada je get u pitanju
-                //proveravamo koja je tabela
-                    if(tabela=="radio_drzava"){
-                        //i nakon toga pozivamo getJSON funkciju kojoj prosleđujemo link endpoint-a našeg API-a
-                        //više od funkciji getJSON https://api.jquery.com/jquery.getjson/
-                            console.log('drzava')
-                        //getJSON funkcija ima 2 bitna parametra, a to su url koji prosleđujemo i success funkcija koja kojom obrađujemo podatke koje smo dobili
-                        //data parametar u okviru funkcije, predstavlja podatke poslate sa servera u JSON formatu
-                        $.getJSON("http://localhost:80/aerodrom/drzava", function(data){
-                            //postavljamo unutrašnji HTML div bloka get_odgovor na pretty string reprezentaciju JSON objekta
-                            //string reprezentacija je mogla i da se postavi samo sa JSON.stringify(data)
-                            // ali postavljamo i parametre null i 2 kako bi prikaz JSONa bio čitljiv
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
-                        });
-                    }else{
-                        //ponavljamo istu proceduru samo za tabelu kategorije
-                        $.getJSON("http://localhost:80/rest/api/kategorije", function(data){
-                            document.getElementById("get_odgovor").innerHTML = JSON.stringify(data,null,2);
-                        });
-                    }
-                    break;
-
-                default:
-                    console.log("default");
-            }
-        }
-    }
-
-    //funkcija posaljiZahtev obrađuje pomoću AJAX-a zahteve koje šaljemo ka serveru
-
+    
 </script>
