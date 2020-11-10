@@ -28,7 +28,6 @@ class Database
 
     function ExecuteQuery($query){
         $this->result = $this->dblink->query($query);
-       //broj izmenjenih redova i onoliko koliko je affectovano promenom
 
         if($this->result){
             if(isset($this->result->num_rows)){

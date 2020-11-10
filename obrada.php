@@ -6,6 +6,8 @@
     require "model/pilot.php";
     require "model/ruta.php";
     require "dbBroker.php";
+
+ 
     $mydb = new Database('aerodrom');
     
     if(isset($_POST["posalji"]) && $_POST["posalji"]="Posalji zahtev"){
@@ -309,19 +311,35 @@
             exit();*/
         }else {
             if( $_POST["odabir_tabele"]!= null){
-                 $tabela = $_POST["odabir_tabele"];
+               $tabela = $_POST["odabir_tabele"];
                  switch($tabela){
-                     case "avion":$myArray=Avion::getAll($conn);break;
+                     case "avion":$myArray=Avion::getAll($conn);
+                    break;
                      case "drzava": $myArray=Drzava::getAll($conn);break;
                      case "let": $myArray=Let::getAll($conn);break;
                      case "pilot": $myArray=Pilot::getAll($conn);break;
                      case "ruta": $myArray=Ruta::getAll($conn);break;
+                     default: echo "err";
                  }
                  foreach($myArray as $row) {
                     print("<pre>".print_r($row,true)."</pre>");
-                    
-                }
-                //  $result=  $mydb->select($tabela, "*", null, null, null);
+                
+                }?>
+                <script> 
+  
+  
+// Access the array elements 
+var passedArray =  
+    <?php echo json_encode($myArray); ?>; 
+       
+// Display the array elements 
+for(var i = 0; i < passedArray.length; i++){ 
+    document.write(passedArray[i]); 
+    console.log('I am here');
+    document.getElementById("get_odgovor").innerHTML = JSON.stringify(passedArray[i],null,2);
+} 
+</script> <?php
+               //  $result=  $mydb->select($tabela, "*", null, null, null);
          }
            
         }

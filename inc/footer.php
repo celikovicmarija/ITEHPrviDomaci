@@ -19,6 +19,10 @@
     <div class="socket text-light text-center py-3">
         <p>&copy; <a href="https://www.google.com" target="_blank">Google</a></p>
     </div>
+    <!-- Bootstrap 4.5 JS -->
+    <script src="js/bootstrap.min.js"></script>
+>
+    <script src="js/all.min.js"></script>
  
 </body></html>
 

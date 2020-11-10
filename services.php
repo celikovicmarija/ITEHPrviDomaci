@@ -317,6 +317,17 @@ include "inc/footer.php"
         $("input[name=http_zahtev]").prop('checked', false);
 
     }
+    function posaljiZahtev(){
 
+    
+
+    request = $.ajax({
+        url: 'get.php',
+        type: 'post',
+        
+        dataType: 'json'
+    });
+    
+}
     
 </script>

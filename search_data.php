@@ -40,18 +40,18 @@ if(!empty($_POST['type']) && (!empty($_POST['keywords']) || !empty($_POST['sortV
 }else{
     $sqlConditions['order_by'] = 'Ime DESC';
 }
-$orders = $search->searchResult($sqlConditions);
-if(!empty($orders)){    
-	foreach($orders as $order){
+$pilots = $search->searchResult($sqlConditions);
+if(!empty($pilots)){    
+	foreach($pilots as $pilot){
 
 		echo '<tr>';
-		echo '<td>'.$order['JMBG'].'</td>';
-		echo '<td>'.$order['Drzavljanstvo'].'</td>';
-		echo '<td>'.$order['Ime'].'</td>';
-		echo '<td>'.$order['Prezime'].'</td>';
-		echo '<td>'.$order['DatumRodjenja'].'</td>';
-        echo '<td>'.$order['DatumZaposlenja'].'</td>';
-        echo '<td>'.$order['BrojSati'].'</td>';
+		echo '<td>'.$pilot['JMBG'].'</td>';
+		echo '<td>'.$pilot['Drzavljanstvo'].'</td>';
+		echo '<td>'.$pilot['Ime'].'</td>';
+		echo '<td>'.$pilot['Prezime'].'</td>';
+		echo '<td>'.$pilot['DatumRodjenja'].'</td>';
+        echo '<td>'.$pilot['DatumZaposlenja'].'</td>';
+        echo '<td>'.$pilot['BrojSati'].'</td>';
         echo '</tr>';
 	}
 }else{
