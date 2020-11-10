@@ -45,9 +45,9 @@ class pilot{
         return $conn->query($q);
     }
 
-    public static function add($Drzavljanstvo, $Ime, $Prezime,$DatumRodjenja, $DatumZaposlenja,$BrojSati, mysqli $conn)
+    public static function add($JMBG,$Drzavljanstvo, $Ime, $Prezime,$DatumRodjenja, $DatumZaposlenja,$BrojSati, mysqli $conn)
     {
-        $q = "INSERT INTO pilot(Drzavljanstvo, Ime, Prezime,DatumRodjenja, DatumZaposlenja, BrojSati) values('$Drzavljanstvo','$Ime', '$Prezime','$DatumRodjenja','$DatumZaposlenja','$BrojSati')";
+        $q = "INSERT INTO pilot(JMBG, Drzavljanstvo, Ime, Prezime,DatumRodjenja, DatumZaposlenja, BrojSati) values('$JMBG','$Drzavljanstvo','$Ime', '$Prezime','$DatumRodjenja','$DatumZaposlenja','$BrojSati')";
         return $conn->query($q);
     }
 

@@ -43,9 +43,9 @@ class let{
         return $conn->query($q);
     }
 
-    public static function add($PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta,$TrajanjeLeta, mysqli $conn)
+    public static function add($BrojRute, $PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta,$TrajanjeLeta, mysqli $conn)
     {
-        $q = "INSERT INTO avion(PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta) values('$PilotID','$Drzavljanstvo', '$RegBroj','$DatumLeta','$TrajanjeLeta')";
+        $q = "INSERT INTO avion(BrojRute, PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta) values('$BrojRute','$PilotID','$Drzavljanstvo', '$RegBroj','$DatumLeta','$TrajanjeLeta')";
         return $conn->query($q);
     }
 

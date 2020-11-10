@@ -6,7 +6,7 @@ if ( isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] == 'ge
 			'year' => date('Y'),
 				'month' => date('m'),
 				'day' => date('d'),
-				'hour' => date('h'),
+				'hour' => date('H'),
 				'minute' => date('i'),
 				'second' => date('s')
 			)

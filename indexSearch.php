@@ -1,7 +1,6 @@
 <?php 
 include('inc/header.php');
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/search.js"></script>
 </head>
 <?php include('inc/container.php');?>
@@ -35,32 +34,32 @@ include('inc/header.php');
 				<th>Državljanstvo</th>
 				<th>Ime</th>
 				<th>Prezime</th>
-				<th>DatumRodjenja</th>
-				<th>DatumZaposlenja</th>
-                <th>BrojSati</th>
+				<th>Datum rođenja</th>
+				<th>Datum zaposlenja</th>
+                <th>Broj sati</th>
             </tr>
         </thead>
         <tbody id="userData">		
 			<?php			
 			include 'Search.php';
 			$search = new Search();
-			$allOrders = $search->searchResult(array('order_by'=>'id DESC'));      
-			if(!empty($allOrders)) {
-				foreach($allOrders as $order) {
+			$pilots = $search->searchResult(array('order_by'=>'id DESC'));      
+			if(!empty($pilots)) {
+				foreach($pilots as $pilot) {
 					echo '
 					<tr>
-					<td>'.$order["JMBG"].'</td>
-					<td>'.$order["Drzavljanstvo"].'</td>
-					<td>'.$order["Ime"].'</td>
-					<td>$'.$order["Prezime"].'</td>
-					<td>'.$order["DatumRodjenja"].'</td>
-                    <td>'.$order["DatumZaposlenja"].'</td>
-                    <td>'.$order["BrojSati"].'</td>
+					<td>'.$pilot["JMBG"].'</td>
+					<td>'.$pilot["Drzavljanstvo"].'</td>
+					<td>'.$pilot["Ime"].'</td>
+					<td>$'.$pilot["Prezime"].'</td>
+					<td>'.$pilot["DatumRodjenja"].'</td>
+                    <td>'.$pilot["DatumZaposlenja"].'</td>
+                    <td>'.$pilot["BrojSati"].'</td>
 					</tr>';
 				}
 			} else {
 			?>            
-				<tr><td colspan="5">No user(s) found...</td></tr>
+				<tr><td colspan="5">No pilot(s) found...</td></tr>
 			<?php } ?>
         </tbody>
     </table>	

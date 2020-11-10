@@ -40,9 +40,9 @@ class ruta{
         return $conn->query($q);
     }
 
-    public static function add($NazivRute, $BrojPresedanja, $PocetnaTacka, $KrajnjaTacka, mysqli $conn)
+    public static function add($BrojRute,$NazivRute, $BrojPresedanja, $PocetnaTacka, $KrajnjaTacka, mysqli $conn)
     {
-        $q = "INSERT INTO avion(NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka) values('$NazivRute','$BrojPresedanja', '$PocetnaTacka', '$KrajnjaTacka')";
+        $q = "INSERT INTO avion(BrojRute, NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka) values('$BrojRute','$NazivRute','$BrojPresedanja', '$PocetnaTacka', '$KrajnjaTacka')";
         return $conn->query($q);
     }
 

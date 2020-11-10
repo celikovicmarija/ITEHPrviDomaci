@@ -15,9 +15,9 @@ class Drzava{
         return $conn->query($q);
     }
 
-    public static function getById($id, mysqli $conn)
+    public static function getById($DrzavaID, mysqli $conn)
     {
-        $q = "SELECT * FROM drzava WHERE DrzavaID=$id";
+        $q = "SELECT * FROM drzava WHERE DrzavaID=$DrzavaID";
         $array = array();
         if ($result = $conn->query($q)) {
 

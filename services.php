@@ -4,8 +4,7 @@
 include "inc/header.php";
 include "obrada.php";
 ?>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -110,9 +109,7 @@ include("inc/container.php");?>
 
 
 
-        <div id="brisanje_reda"class="text-center pt-4 pb-4">
-            <input type="text" name="brisanje" id="brisanje" placeholder="Unesite id koji želite da obrišete">
-        </div>
+    
         <div id="brisanje_reda_avion"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_avion" id="brisanje_avion" placeholder="Unesite id aviona koji želite da obrišete">
         </div>
@@ -215,7 +212,7 @@ include "inc/footer.php"
 
 
 <script>
-    var nizBlokova = ["get_odgovor", "avion_post", "drzava_post", "let_post", "pilot_post", "ruta_post", "brisanje_reda", "avion_put", "drzava_put",
+    var nizBlokova = ["get_odgovor", "avion_post", "drzava_post", "let_post", "pilot_post", "ruta_post", "avion_put", "drzava_put",
         "let_put", "pilot_put", "ruta_put", "greska", "brisanje_reda_avion","brisanje_reda_drzava","brisanje_reda_let","brisanje_reda_pilot","brisanje_reda_ruta"];
     function skloniBlokove() {
         for (const blok of nizBlokova) {
@@ -240,8 +237,8 @@ include "inc/footer.php"
             case "post":
                 skloniBlokove();
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
-                    document.getElementById(nizBlokova[12]).style.display = "block";
+                    document.getElementById(nizBlokova[11]).innerHTML = "Morate odabrati tabelu za manipulaciju";
+                    document.getElementById(nizBlokova[11]).style.display = "block";
                 } else {
 
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
@@ -267,49 +264,47 @@ include "inc/footer.php"
             case "put":
                 skloniBlokove();
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
-                    document.getElementById(nizBlokova[12]).style.display = "block";
+                    document.getElementById(nizBlokova[11]).innerHTML = "Morate odabrati tabelu za manipulaciju";
+                    document.getElementById(nizBlokova[11]).style.display = "block";
                 } else {
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
-
                     if (tabela == "radio_avion") {
-                        document.getElementById(nizBlokova[7]).style.display = "block";
+                        document.getElementById(nizBlokova[6]).style.display = "block";
                     } else if (tabela == "radio_drzava") {
-                        document.getElementById(nizBlokova[8]).style.display = "block";
+                        document.getElementById(nizBlokova[7]).style.display = "block";
                     }
                     else if (tabela == "radio_let") {
-                        document.getElementById(nizBlokova[9]).style.display = "block";
+                        document.getElementById(nizBlokova[8]).style.display = "block";
                     }
                     else if (tabela == "radio_pilot") {
-                        document.getElementById(nizBlokova[10]).style.display = "block";
+                        document.getElementById(nizBlokova[9]).style.display = "block";
                     }
                     else if (tabela == "radio_ruta") {
-                        document.getElementById(nizBlokova[11]).style.display = "block";
+                        document.getElementById(nizBlokova[10]).style.display = "block";
                     }
                 }
                 break;
             case "delete":
                 skloniBlokove();
                 if ($("input[name=odabir_tabele]:checked").length == 0) {
-                    document.getElementById(nizBlokova[12]).innerHTML = "Morate odabrati tabelu za manipulaciju";
-                    document.getElementById(nizBlokova[12]).style.display = "block";
+                    document.getElementById(nizBlokova[11]).innerHTML = "Morate odabrati tabelu za manipulaciju";
+                    document.getElementById(nizBlokova[11]).style.display = "block";
                 } else {
                     var tabela = $("input[name=odabir_tabele]:checked")[0].id;
-                    document.getElementById(nizBlokova[6]).style.display = "block";
 
                     if (tabela == "radio_avion") {
-                        document.getElementById(nizBlokova[13]).style.display = "block";
+                        document.getElementById(nizBlokova[12]).style.display = "block";
                     } else if (tabela == "radio_drzava") {
-                        document.getElementById(nizBlokova[14]).style.display = "block";
+                        document.getElementById(nizBlokova[13]).style.display = "block";
                     }
                     else if (tabela == "radio_let") {
-                        document.getElementById(nizBlokova[15]).style.display = "block";
+                        document.getElementById(nizBlokova[14]).style.display = "block";
                     }
                     else if (tabela == "radio_pilot") {
-                        document.getElementById(nizBlokova[16]).style.display = "block";
+                        document.getElementById(nizBlokova[15]).style.display = "block";
                     }
                     else if (tabela == "radio_ruta") {
-                        document.getElementById(nizBlokova[17]).style.display = "block";
+                        document.getElementById(nizBlokova[16]).style.display = "block";
                     }
                 }
                 break;

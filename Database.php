@@ -76,7 +76,7 @@ class Database
             $q.='('.$rows.')';
         }
         $q.=" VALUES($query_values)";
-        echo($q);
+        //echo($q);
         if($this->ExecuteQuery($q)){
             return true;
         }else{
@@ -92,7 +92,7 @@ class Database
         }
         $query_values = implode(",", $set_query);  
         $q = "UPDATE $table SET $query_values WHERE $r=$id";
-        echo $q;
+       // echo $q;
         // && $this->affected>0
         if($this->ExecuteQuery($q)){
             return true;
@@ -103,7 +103,7 @@ class Database
 
     function delete($table, $id, $id_value){
         $q = "DELETE FROM $table WHERE $table.$id=$id_value";
-        echo $q;
+        //echo $q;
         if($this->ExecuteQuery($q)){
             return true;
         }else{

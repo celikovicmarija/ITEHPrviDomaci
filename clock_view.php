@@ -14,7 +14,7 @@
 			}
 			
 			#clock {
-				width: 50%;
+				width: 60%;
 				color: black;
 				margin: 2px ;
 				text-align: left;
@@ -22,7 +22,6 @@
 			}
 			}
 		</style>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 			var start_time;
 			var current_time;
