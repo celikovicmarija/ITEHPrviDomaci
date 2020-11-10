@@ -14,7 +14,7 @@
         //AVION
         if($_POST["regbroj_avion"]!=null && $_POST["naziv_avion"]!=null && $_POST["putnici_avion"]!=null && $_POST["godproizvodnje_avion"]!=null){
             $niz = ["RegBroj"=> "'".$_POST["regbroj_avion"]."'", "NazivAviona"=>"'".$_POST["naziv_avion"]."'", "MaxBrojPutnika"=>"'".$_POST["putnici_avion"]."'",  "GodinaProizvodne"=>"'".$_POST["godproizvodnje_avion"]."'"];
-            $success=Avion::add($_POST["naziv_avion"],$_POST["putnici_avion"],$_POST["godproizvodnje_avion"],$conn);
+            $success=Avion::add($_POST["regbroj_avion"],$_POST["naziv_avion"],$_POST["putnici_avion"],$_POST["godproizvodnje_avion"],$conn);
             if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
             } else{
@@ -29,40 +29,41 @@
             $_POST = array();
             exit();*/
         }   
-        //Ne radi iz nekog razloga
+        //Ne radi iz nekog razloga NE RADI
         //DRZAVA, radi samo treba da se ponovo ubace sve vrednosti, auto increment ne radi
-       else if($_POST["naziv_drzava"]!=null){
+       else if($_POST["id_drzava"]!=null && $_POST["naziv_drzava"]!=null ){
+          /* echo "Hello";
            $naziv=$_POST["naziv_drzava"];
-            $niz = ["NazivDrzave"=> "'".$naziv."'"];
-           /* $success=Drzava::add($_POST["naziv_drzava"], $conn);
+           $id=$_POST["id_drzava"];
+            $niz = ["DrzavaID"=>$id, "NazivDrzave"=> "'".$naziv."'"];*/
+            $success=Drzava::add($_POST["id_drzava"],$_POST["naziv_drzava"], $conn);
             if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
             } else{?>
                 <script> alert('Vrednosti nisu ubačene')</script><?php
             }
-            */
-            
-            if($mydb->insert("drzava", "NazivDrzave",$niz)){?> 
+        
+            /*
+            if($mydb->insert("drzava", "DrzavaID, NazivDrzave",$niz)){?> 
             <script> alert('Vrednosti ubačene');</script><?php
         } else{?>
             <script> alert('Vrednosti nisu ubačene')</script><?php
         }
-            $_POST = array();
-            exit();
+           // $_POST = array();
+          //  exit();*/
         }  
         //////
         //LET
-        //Ne radi
         else if($_POST["idruta_let"]!=null && $_POST["idpilot_let"]!=null && $_POST["drzavljanstvo_let"]!=null && $_POST["regbravion_let"]!=null && $_POST["datum_let"]!=null && $_POST["trajanje_let"]!=null){
             $niz = ["BrojRute"=> $_POST["idruta_let"], "PilotID"=>$_POST["idpilot_let"], "Drzavljanstvo"=>$_POST["drzavljanstvo_let"], "RegBroj"=>$_POST["regbravion_let"],  "DatumLeta"=>"NOW()",  "TrajanjeLeta"=>$_POST["trajanje_let"]];
-            $success=Let::add($_POST["idruta_let"], $_POST["idpilot_let"],$_POST["drzavljanstvo_let"],$_POST["regbravion_let"],"NOW()",$_POST["trajanje_let"],$conn);
-            /*if($success){?> 
+            $success=Let::add($_POST["idruta_let"], $_POST["idpilot_let"],$_POST["drzavljanstvo_let"],$_POST["regbravion_let"],$_POST["datum_let"],$_POST["trajanje_let"],$conn);
+            if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
 
             } else{?>
                 <script> alert('Vrednosti nisu ubačene')</script><?php
             }
-            */
+            /*
             
             if($mydb->insert("let","BrojRute, PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta", $niz)){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
@@ -71,7 +72,7 @@
                 <script> alert('Vrednosti nisu ubačene')</script><?php
             }
             $_POST = array();
-            exit();
+            exit();*/
         }
 
         //PILOT
@@ -81,7 +82,7 @@
             //"'".$_POST["datrodj_pilot"]."'"
             //"'".$_POST["datzap_pilot"]."'"
             $niz = ["JMBG"=>"'".$_POST['jmbg_pilot']."'", "Drzavljanstvo"=>$_POST["iddrzavljanstvo_pilot"], "Ime"=>"'".$_POST["ime_pilot"]."'",  "Prezime"=>"'".$_POST["prezime_pilot"]."'",  "DatumRodjenja"=>"NOW()",  "DatumZaposlenja"=>"NOW()",  "BrojSati"=>$_POST["sati_pilot"]];
-            $success=Pilot::add($_POST['jmbg_pilot'],$_POST["iddrzavljanstvo_pilot"],$_POST["ime_pilot"],$_POST["prezime_pilot"],"NOW()","NOW()",$_POST["sati_pilot"],$conn);
+            $success=Pilot::add($_POST['jmbg_pilot'],$_POST["iddrzavljanstvo_pilot"],$_POST["ime_pilot"],$_POST["prezime_pilot"],$_POST["datzap_pilot"],$_POST["datzap_pilot"],$_POST["sati_pilot"],$conn);
             if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
             } else{?>
@@ -97,19 +98,18 @@
             exit();*/
         }    
         //RUTA
-        //ne radi
         else if($_POST["broj_ruta"]!=null && $_POST["naziv_ruta"]!=null && $_POST["brpresedanja_ruta"]!=null && $_POST["idpocetak_ruta"]!=null && $_POST["idkraj_ruta"]!=null){
             $niz = ["BrojRute"=> "'".$_POST["broj_ruta"]."'", "NazivRute"=>"'".$_POST["naziv_ruta"]."'", "BrojPresedanja"=>"'".$_POST["brpresedanja_ruta"]."'",  "PocetnaTacka"=>"'".$_POST["idpocetak_ruta"]."'",  "KrajnjaTacka"=>"'".$_POST["idkraj_ruta"]."'"];
-           /* $success=Ruta::add($_POST["broj_ruta"],$_POST["naziv_ruta"],$_POST["brpresedanja_ruta"],$_POST["idpocetak_ruta"],$_POST["idkraj_ruta"],$conn);
+           $success=Ruta::add($_POST["broj_ruta"],$_POST["naziv_ruta"],$_POST["brpresedanja_ruta"],$_POST["idpocetak_ruta"],$_POST["idkraj_ruta"],$conn);
             if($success){?> 
                 <script> alert('Vrednosti ubačene');</script><?php
                 echo "vrednosti ubacene";
             } else{
                 echo "vrednosti nisu ubacene";?>
                 <script> alert('Vrednosti nisu ubačene')</script><?php
-            }*/
+            }
         
-          if($mydb->insert("ruta", "BrojRute, NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka", $niz)){?> 
+        /*  if($mydb->insert("ruta", "BrojRute, NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka", $niz)){?> 
             <script> alert('Vrednosti ubačene');</script><?php
             echo "vrednosti ubacene";
         } else{
@@ -117,7 +117,7 @@
             <script> alert('Vrednosti nisu ubačene')</script><?php
         }
             $_POST = array();
-            exit();
+            exit();*/
         }   
         //////////UPDATE 
         //AVION
@@ -139,24 +139,24 @@
             exit();*/
         }   
         //DRZAVA
-        //ne radi
+
        else if($_POST["id_drzava"]!=null && $_POST["naziv_drzava_put"]!=null){
            $naziv="'".$_POST["naziv_drzava_put"]."'";
             $niz = [$naziv];
-           /* $success=Drzava::update($_POST["id_drzava"], $_POST["naziv_drzava_put"], $conn);
-            if($success){
-                echo "vrednosti ubacene";
-            } else{
-                echo "vrednosti nisu ubacene";
-            }*/
-            
+           $success=Drzava::update($_POST["id_drzava"], $_POST["naziv_drzava_put"], $conn);
+            if($success){?> 
+                <script> alert('Vrednosti izmenjene');</script><?php
+            } else{?>
+                <script> alert('Vrednosti nisu izmenjene')</script><?php
+            }
+         /*   
            if($mydb->update("drzava", "DrzavaID",$_POST["id_drzava"],["NazivDrzave"],$niz)){?> 
             <script> alert('Vrednosti izmenjene');</script><?php
         } else{?>
             <script> alert('Vrednosti nisu izmenjene')</script><?php
         }
             $_POST = array();
-            exit();
+            exit();*/
         }  
         //////
         //LET
@@ -198,20 +198,20 @@
         //RUTA
         //ne radi
         else if($_POST["id_ruta"]!=null && $_POST["naziv_ruta_put"]!=null && $_POST["brpresedanja_ruta_put"]!=null && $_POST["idpocetak_ruta_put"]!=null && $_POST["idkraj_ruta_put"]!=null){
-           /* $niz = [ "'".$_POST["naziv_ruta_put"]. "'", $_POST["brpresedanja_ruta_put"],  $_POST["idpocetak_ruta_put"],$_POST["idkraj_ruta_put"]];
+            $niz = [ "'".$_POST["naziv_ruta_put"]. "'", $_POST["brpresedanja_ruta_put"],  $_POST["idpocetak_ruta_put"],$_POST["idkraj_ruta_put"]];
             $success=Ruta::update($_POST["id_ruta"],$_POST["naziv_ruta_put"],$_POST["brpresedanja_ruta_put"],$_POST["idpocetak_ruta_put"],$_POST["idkraj_ruta_put"],$conn);
             if($success){?> 
                 <script> alert('Vrednosti izmenjene');</script><?php
             } else{?>
                 <script> alert('Vrednosti nisu izmenjene')</script><?php
-            }*/
-            if($mydb->update("ruta","BrojRute", $_POST["id_ruta"],[ "NazivRute", "BrojPresedanja", "PocetnaTacka", "KrajnjaTacka"], $niz)){?> 
+            }
+            /*if($mydb->update("ruta","BrojRute", $_POST["id_ruta"],[ "NazivRute", "BrojPresedanja", "PocetnaTacka", "KrajnjaTacka"], $niz)){?> 
                 <script> alert('Vrednosti izmenjene');</script><?php
             } else{?>
                 <script> alert('Vrednosti nisu izmenjene')</script><?php
             }
             $_POST = array();
-            exit();
+            exit();*/
         }
         
         

@@ -23,7 +23,7 @@ class let{
         $q = "SELECT * FROM let";
         return $conn->query($q);
     }
-
+ // Produzi ovo sa slozeni
     public static function getById($id, mysqli $conn)
     {
         $q = "SELECT * FROM let WHERE BrojRute=$id";
@@ -39,19 +39,21 @@ class let{
 
     public static function deleteById($BrojRute, mysqli $conn)
     {
-        $q = "DELETE FROM avion WHERE BrojRute=$BrojRute";
+        $q = "DELETE FROM let WHERE BrojRute=$BrojRute";
         return $conn->query($q);
     }
 
     public static function add($BrojRute, $PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta,$TrajanjeLeta, mysqli $conn)
     {
-        $q = "INSERT INTO avion(BrojRute, PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta) values('$BrojRute','$PilotID','$Drzavljanstvo', '$RegBroj','$DatumLeta','$TrajanjeLeta')";
+        $q = "INSERT INTO let(BrojRute, PilotID, Drzavljanstvo, RegBroj, DatumLeta, TrajanjeLeta) values('$BrojRute','$PilotID','$Drzavljanstvo', '$RegBroj','$DatumLeta','$TrajanjeLeta')";
+        echo $q;
         return $conn->query($q);
+        
     }
 
     public static function update($BrojRute,$PilotID, $Drzavljanstvo, $RegBroj,$DatumLeta, $TrajanjeLeta, mysqli $conn)
     {
-        $q = "UPDATE avion set PilotID='$PilotID', Drzavljanstvo='$Drzavljanstvo', RegBroj='$RegBroj', DatumLeta='$DatumLeta', TrajanjeLeta='$TrajanjeLeta' where BrojRute=$BrojRute";
+        $q = "UPDATE let set PilotID='$PilotID', Drzavljanstvo='$Drzavljanstvo', RegBroj='$RegBroj', DatumLeta='$DatumLeta', TrajanjeLeta='$TrajanjeLeta' where BrojRute=$BrojRute";
         return $conn->query($q);
     }
 }

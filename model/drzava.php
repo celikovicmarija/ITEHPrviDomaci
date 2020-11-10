@@ -34,15 +34,15 @@ class Drzava{
         return $conn->query($q);
     }
 
-    public static function add($NazivDrzave, mysqli $conn)
+    public static function add($DrzavaID,$NazivDrzave, mysqli $conn)
     {
-        $q = "INSERT INTO avion(NazivDrzave) values('$NazivDrzave')";
+        $q = "INSERT INTO drzava(DrzavaID, NazivDrzave) values('$DrzavaID','$NazivDrzave')";
         return $conn->query($q);
     }
 
     public static function update($DrzavaID,$NazivDrzave, mysqli $conn)
     {
-        $q = "UPDATE avion set NazivDrzave='$NazivDrzave' where DrzavaID=$DrzavaID";
+        $q = "UPDATE drzava set NazivDrzave='$NazivDrzave' where DrzavaID=$DrzavaID";
         return $conn->query($q);
     }
 

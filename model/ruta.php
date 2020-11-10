@@ -42,13 +42,13 @@ class ruta{
 
     public static function add($BrojRute,$NazivRute, $BrojPresedanja, $PocetnaTacka, $KrajnjaTacka, mysqli $conn)
     {
-        $q = "INSERT INTO avion(BrojRute, NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka) values('$BrojRute','$NazivRute','$BrojPresedanja', '$PocetnaTacka', '$KrajnjaTacka')";
+        $q = "INSERT INTO ruta(BrojRute, NazivRute, BrojPresedanja, PocetnaTacka, KrajnjaTacka) values('$BrojRute','$NazivRute','$BrojPresedanja', '$PocetnaTacka', '$KrajnjaTacka')";
         return $conn->query($q);
     }
 
     public static function update($BrojRute,$NazivRute, $BrojPresedanja, $PocetnaTacka, $KrajnjaTacka, mysqli $conn)
     {
-        $q = "UPDATE avion set NazivRute='$NazivRute', BrojPresedanja='$BrojPresedanja', PocetnaTacka='$PocetnaTacka',KrajnjaTacka='$KrajnjaTacka' where BrojRute=$BrojRute";
+        $q = "UPDATE ruta set NazivRute='$NazivRute', BrojPresedanja='$BrojPresedanja', PocetnaTacka='$PocetnaTacka',KrajnjaTacka='$KrajnjaTacka' where BrojRute=$BrojRute";
         return $conn->query($q);
     }
 }

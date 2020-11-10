@@ -2,7 +2,7 @@
 class avion{
 
 
-public $RegBroj;
+    public $RegBroj;
     public $NazivAviona;
     public $MaxBrojPutnika;
     public $GodinaProizvodnje;
@@ -40,9 +40,10 @@ public $RegBroj;
         return $conn->query($q);
     }
 
-    public static function add($NazivAviona, $MaxBrojPutnika, $GodinaProizvodnje,mysqli $conn)
+    public static function add($RegBroj, $NazivAviona, $MaxBrojPutnika, $GodinaProizvodnje,mysqli $conn)
     {
-        $q = "INSERT INTO avion(NazivAviona, MaxBrojPutnika, GodinaProizvodnje) values('$NazivAviona','$MaxBrojPutnika', '$GodinaProizvodnje')";
+        $q = "INSERT INTO avion(RegBroj,NazivAviona, MaxBrojPutnika, GodinaProizvodnje) values('$RegBroj','$NazivAviona','$MaxBrojPutnika', '$GodinaProizvodnje')";
+       echo    $q;
         return $conn->query($q);
     }
 

@@ -42,7 +42,7 @@ include("inc/container.php");?>
             <label for="delete">DELETE</label>
         </div>
 
-        <pre id="get_odgovor" class="text-center pt-4 pb-4"></pre>
+        <pre id="get_odgovor" ></pre>
 
         <div id="avion_post" class="text-center pt-4 pb-4">
             <input type="text" name="regbroj_avion" placeholder="Unesite registarski broj aviona">
@@ -56,12 +56,13 @@ include("inc/container.php");?>
         </div>
 
         <div id="drzava_post"class="text-center pt-4 pb-4">
+            <input type="text" name="id_drzava" placeholder="Unesite id drzave">
             <input type="text" name="naziv_drzava" placeholder="Unesite naziv drzave">
             <br>
         </div>
 
 
-        <div id="let_post"class="text-center pt-4 pb-4">
+        <div id="let_post" class="text-center pt-4 pb-4">
             <input type="text" name="idruta_let" id="idruta_let" placeholder="Unesite rutu leta">
             <br>
             <input type="text" name="idpilot_let" id ="idpilot_let" placeholder="Unesite id pilota leta">
