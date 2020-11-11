@@ -23,6 +23,8 @@ include('inc/header.php');
 			  <option value="name_desc">Ime opadajući</option>
               <option value="sn_asc">Prezime rastući</option>
 			  <option value="sn_desc">Prezime opadajući</option>
+			  <option value="age_asc">Starost rastući</option>
+			  <option value="age_desc">Starost opadajući</option>
 			</select>
 		</div>
 	</div>
@@ -43,7 +45,7 @@ include('inc/header.php');
 			<?php			
 			include 'Search.php';
 			$search = new Search();
-			$pilots = $search->searchResult(array('order_by'=>'id DESC'));      
+			$pilots = $search->searchResult(array('order_by'=>'JMBG DESC'));      
 			if(!empty($pilots)) {
 				foreach($pilots as $pilot) {
 					echo '

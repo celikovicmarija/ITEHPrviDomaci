@@ -204,7 +204,196 @@ include("inc/container.php");?>
         <div id="submit" class="text-center pt-4 pb-4">
             <input type="submit" name="posalji" id="posalji" value="Posalji zahtev">
         </div>
-    </form>
+        <?php	 if( isset($_POST["posalji"]) && $_POST["posalji"]="Posalji zahtev" &&$_POST["odabir_tabele"]!= null){
+            $tabela = $_POST["odabir_tabele"];
+
+        } if($tabela=="pilot"){?>
+
+       
+    <table class="table table-striped table-bordered text-center table-hover table-fixed text-nowrap">
+        <thead>
+            <tr>
+				<th>JMBG</th>
+				<th>Državljanstvo</th>
+				<th>Ime</th>
+				<th>Prezime</th>
+				<th>Datum rođenja</th>
+				<th>Datum zaposlenja</th>
+                <th>Broj sati</th>
+            </tr>
+        </thead>
+        <tbody id="userData">		
+			<?php			
+			include 'Search.php';
+			$search = new Search();
+			$pilots = $search->searchResult(array('order_by'=>'JMBG DESC'));      
+			if(!empty($pilots)) {
+				foreach($pilots as $pilot) {
+					echo '
+					<tr>
+					<td>'.$pilot["JMBG"].'</td>
+					<td>'.$pilot["Drzavljanstvo"].'</td>
+					<td>'.$pilot["Ime"].'</td>
+					<td>$'.$pilot["Prezime"].'</td>
+					<td>'.$pilot["DatumRodjenja"].'</td>
+                    <td>'.$pilot["DatumZaposlenja"].'</td>
+                    <td>'.$pilot["BrojSati"].'</td>
+					</tr>';
+				}
+			} else {
+			?>            
+				<tr><td colspan="5">No pilot(s) found...</td></tr>
+			<?php } ?>
+        </tbody>
+    </table>	
+            </form> <?php } ?> 
+            <?php if($tabela=="drzava"){?>
+
+       
+<table class="table table-striped table-bordered text-center table-hover table-fixed text-nowrap">
+    <thead>
+        <tr>
+            <th>DrzavaID</th>
+            <th>NazivDrzave</th>
+
+        </tr>
+    </thead>
+    <tbody id="userData">		
+        <?php			
+        include 'Search.php';
+        $search = new Search();
+        $countries=Drzava::getAll($conn);    
+        if(!empty($countries)) {
+            foreach($countries as $country) {
+                echo '
+                <tr>
+                <td>'.$country["DrzavaID"].'</td>
+                <td>'.$country["NazivDrzave"].'</td>
+                </tr>';
+            }
+        } else {
+        ?>            
+            <tr><td colspan="5">No countries(s) found...</td></tr>
+        <?php } ?>
+    </tbody>
+</table>	
+        </form> <?php } ?>
+
+        <?php if($tabela=="avion"){?>
+
+       
+<table class="table table-striped table-bordered text-center table-hover table-fixed text-nowrap">
+    <thead>
+        <tr>
+            <th>Registarski Broj</th>
+            <th>Naziv Aviona</th>
+            <th>Maksimalni broj putnika</th>
+            <th>Godina proizvodnje</th>
+
+        </tr>
+    </thead>
+    <tbody id="userData">		
+        <?php			
+        include 'Search.php';
+        $search = new Search();
+        $airplanes=Avion::getAll($conn);    
+        if(!empty($airplanes)) {
+            foreach($airplanes as $airplane) {
+                echo '
+                <tr>
+                <td>'.$airplane["RegBroj"].'</td>
+                <td>'.$airplane["NazivAviona"].'</td>
+                <td>'.$airplane["MaxBrojPutnika"].'</td>
+                <td>'.$airplane["GodinaProizvodnje"].'</td>
+                </tr>';
+            }
+        } else {
+        ?>            
+            <tr><td colspan="5">No countries(s) found...</td></tr>
+        <?php } ?>
+    </tbody>
+</table>	
+        </form> <?php } ?>
+        <?php
+        if($tabela=="let"){?>
+
+       
+            <table class="table table-striped table-bordered text-center  table-hover table-fixed text-nowrap">
+                <thead>
+                    <tr>
+                        <th>Broj rute</th>
+                        <th>ID Pilota</th>
+                        <th>Drzavljanstvo pilota</th>
+                        <th>Registarski broj aviona</th>
+                        <th>Datum leta</th>
+                        <th>Trajanje leta </th>
+
+                    </tr>
+                </thead>
+                <tbody id="userData">		
+                    <?php			
+                    include 'Search.php';
+                    $search = new Search();
+                    $flights = $search->searchResult(array('order_by'=>'RegBroj DESC'));  
+                    $flights=Let::getAll($conn);    
+                    if(!empty($flights)) {
+                        foreach($flights as $flight) {
+                            echo '
+                            <tr>
+                            <td>'.$flight["BrojRute"].'</td>
+                            <td>'.$flight["PilotID"].'</td>
+                            <td>'.$flight["Drzavljanstvo"].'</td>
+                            <td>'.$flight["RegBroj"].'</td>
+                            <td>'.$flight["DatumLeta"].'</td>
+                            <td>'.$flight["TrajanjeLeta"].'</td>
+                            </tr>';
+                        }
+                    } else {
+                    ?>            
+                        <tr><td colspan="5">No flight(s) found...</td></tr>
+                    <?php } ?>
+                </tbody>
+            </table>	
+                    </form> <?php } ?>
+                    <?php
+                     if($tabela=="ruta"){?>
+
+       
+                        <table class="table table-striped table-bordered text-center  w-auto text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Broj rute</th>
+                                    <th>Naziv rute</th>
+                                    <th>Broj presedanja</th>
+                                    <th>Pocetna tacka</th>
+                                    <th>Krajnja tacka</th>
+            
+                                </tr>
+                            </thead>
+                            <tbody id="userData">		
+                                <?php			
+                                include 'Search.php';
+                                $search = new Search();
+                                $routs = $search->searchResult(array('order_by'=>'RegBroj DESC'));  
+                                $routs=Ruta::getAll($conn);    
+                                if(!empty($routs)) {
+                                    foreach($routs as $route) {
+                                        echo '
+                                        <tr>
+                                        <td>'.$route["BrojRute"].'</td>
+                                        <td>'.$route["NazivRute"].'</td>
+                                        <td>'.$route["BrojPresedanja"].'</td>
+                                        <td>'.$route["PocetnaTacka"].'</td>
+                                        <td>'.$route["KrajnjaTacka"].'</td>
+                                        </tr>';
+                                    }
+                                } else {
+                                ?>            
+                                    <tr><td colspan="5">No route(s) found...</td></tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>	
+                                </form> <?php } ?>
     </div>
         </div>
     </div>

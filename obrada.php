@@ -177,23 +177,5 @@
                 <script> alert('Ruta nije obrisana! ')</script><?php
             }
 
-        }else {
-            if( $_POST["odabir_tabele"]!= null){
-               $tabela = $_POST["odabir_tabele"];
-                 switch($tabela){
-                     case "avion":$myArray=Avion::getAll($conn);
-                    break;
-                     case "drzava": $myArray=Drzava::getAll($conn);break;
-                     case "let": $myArray=Let::getAll($conn);break;
-                     case "pilot": $myArray=Pilot::getAll($conn);break;
-                     case "ruta": $myArray=Ruta::getAll($conn);break;
-                     default: echo "err";
-                 }
-                 foreach($myArray as $row) {
-                    print("<pre>".print_r($row,true)."</pre>");
-                
-                }
-         }
-           
         }
     } 

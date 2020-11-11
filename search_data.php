@@ -33,6 +33,14 @@ if(!empty($_POST['type']) && (!empty($_POST['keywords']) || !empty($_POST['sortV
             'sn_desc'=>array(
                 'order_by'=>'Prezime DESC'
             )
+            ,
+            'age_asc'=>array(
+                'order_by'=>'DatumRodjenja ASC'
+            )
+            ,
+            'age_desc'=>array(
+                'order_by'=>'DatumRodjenja DESC'
+            )
         );
         $sortKey = key($sortArribute[$sortValue]);
         $sqlConditions[$sortKey] = $sortArribute[$sortValue][$sortKey];
@@ -41,6 +49,7 @@ if(!empty($_POST['type']) && (!empty($_POST['keywords']) || !empty($_POST['sortV
     $sqlConditions['order_by'] = 'Ime DESC';
 }
 $pilots = $search->searchResult($sqlConditions);
+
 if(!empty($pilots)){    
 	foreach($pilots as $pilot){
 
