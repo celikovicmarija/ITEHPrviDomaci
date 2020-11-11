@@ -1,18 +1,16 @@
 <?php 
-error_reporting(E_ALL ^ E_NOTICE); // hide all basic notices from PHP
+error_reporting(E_ALL ^ E_NOTICE); 
 
-//If the form is submitted
 if(isset($_POST['submitted'])) {
 	
-	// require a name from user
+
 	if(trim($_POST['contactName']) === '') {
 		$nameError =  'Forgot your name!'; 
 		$hasError = true;
 	} else {
 		$name = trim($_POST['contactName']);
 	}
-	
-	// need valid email
+
 	if(trim($_POST['email']) === '')  {
 		$emailError = 'Forgot to enter in your e-mail address.';
 		$hasError = true;
@@ -22,8 +20,7 @@ if(isset($_POST['submitted'])) {
 	} else {
 		$email = trim($_POST['email']);
 	}
-		
-	// we need at least some content
+
 	if(trim($_POST['comments']) === '') {
 		$commentError = 'You forgot to enter a message!';
 		$hasError = true;
@@ -34,10 +31,7 @@ if(isset($_POST['submitted'])) {
 			$comments = trim($_POST['comments']);
 		}
 	}
-		
-	// upon no failure errors let's email now!
 	if(!isset($hasError)) {
-
 		
 		$emailTo = 'celikovicmarija@gmail.com';
 		$subject = 'Submitted message from '.$name;
@@ -46,8 +40,7 @@ if(isset($_POST['submitted'])) {
 		$headers = 'From: ' .' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
 
 		mail($emailTo, $subject, $body, $headers);
-        
-        // set our boolean completion value to TRUE
+
 		$emailSent = true;
 	}
 }
@@ -66,7 +59,7 @@ include("inc/container.php");?>
 		<div class="container content w-100 ">
 		
 	        <?php if(isset($emailSent) && $emailSent == true) { ?>
-                <p class="info pb-5">Your email was sent. Thank you for your input!</p>
+                <p class="info pb-5">Your email was sent!</p>
             <?php } else { ?>
             
 				<div class="desc">
@@ -107,7 +100,7 @@ include("inc/container.php");?>
 						</div>
                         
 							<button  name="submit" type="submit" type="button" data-toggle="modal" data-target="#modal1"
-             class="btn btn-primary btn-lg mr-2 pb-2">Send us Mail!</button>
+             class=" subbuttonbtn btn-primary btn-lg mr-2 pb-2">Send us Mail!</button>
 							<input type="hidden" name="submitted" id="submitted" value="true" />
 					</form>			
 				</div>
@@ -118,3 +111,39 @@ include("inc/container.php");?>
 	<?php 
 include "inc/footer.php"
 ?>
+<script type="text/javascript">
+	<!--
+	$(document).ready(function() {
+		$('form#contact-us').submit(function() {
+			$('form#contact-us .error').remove();
+			var hasError = false;
+			$('.requiredField').each(function() {
+				if($.trim($(this).val()) == '') {
+					var labelText = $(this).prev('label').text();
+					$(this).parent().append('<span class="error">Your forgot to enter your '+labelText+'.</span>');
+					$(this).addClass('inputError');
+					hasError = true;
+				} else if($(this).hasClass('email')) {
+					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+					if(!emailReg.test($.trim($(this).val()))) {
+						var labelText = $(this).prev('label').text();
+						$(this).parent().append('<span class="error">Sorry! You\'ve entered an invalid '+labelText+'.</span>');
+						$(this).addClass('inputError');
+						hasError = true;
+					}
+				}
+			});
+			if(!hasError) {
+				var formInput = $(this).serialize();
+				$.post($(this).attr('action'),formInput, function(data){
+					$('form#contact-us').slideUp("fast", function() {				   
+						$(this).before('<p class="tick"><strong>Thanks! </strong> Your email was sent. Thank you for your input!</p>');
+					});
+				});
+			}
+			
+			return false;	
+		});
+	});
+
+</script>

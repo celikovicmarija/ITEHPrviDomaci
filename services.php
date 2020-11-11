@@ -57,7 +57,7 @@ include("inc/container.php");?>
 
         <div id="drzava_post" class="text-center pt-4 pb-4">
           
-            <input type="text" name="naziv_drzava" id="naziv_drzava" placeholder="Unesite naziv drzave">
+            <input type="text" name="naziv_drzava" id="naziv_drzava" placeholder="Unesite naziv države">
             <input type="text" name="d_drzava" id="d_drzava" placeholder="Unesite id drzave">
             <br>
         </div>
@@ -68,7 +68,7 @@ include("inc/container.php");?>
             <br>
             <input type="text" name="idpilot_let" id ="idpilot_let" placeholder="Unesite id pilota leta">
             <br>
-            <input type="text" name="drzavljanstvo_let" id="drzavljanstvo_let" placeholder="Unesite drzavaljanstvo pilota leta">
+            <input type="text" name="drzavljanstvo_let" id="drzavljanstvo_let" placeholder="Unesite državaljanstvo pilota leta">
             <br>
             <input type="text" name="regbravion_let" id="regbravion_let" placeholder="Unesite registarski broj aviona leta">
             <br>
@@ -82,13 +82,13 @@ include("inc/container.php");?>
         <div id="pilot_post" class="text-center pt-4 pb-4">
             <input type="text" name="jmbg_pilot" id="jmbg_pilot" placeholder="Unesite jmbg pilota">
             <br>
-            <input type="text" name="iddrzavljanstvo_pilot" id="iddrzavljanstvo_pilot" placeholder="Unesite drzavljanstvo pilota">
+            <input type="text" name="iddrzavljanstvo_pilot" id="iddrzavljanstvo_pilot" placeholder="Unesite državljanstvo pilota">
             <br>
             <input type="text" name="ime_pilot" id="ime_pilot" placeholder="Unesite ime pilota">
             <br>
             <input type="text" name="prezime_pilot" id="prezime_pilot" placeholder="Unesite prezime pilota">
             <br>
-            <input type="text" name="datrodj_pilot" id="datrodj_pilot" placeholder="Unesite datum rodjenja pilota">
+            <input type="text" name="datrodj_pilot" id="datrodj_pilot" placeholder="Unesite datum rođenja pilota">
             <br>
             <input type="text" name="datzap_pilot" id="datzap_pilot" placeholder="Unesite datum zaposlenja pilota">
             <br>
@@ -100,11 +100,11 @@ include("inc/container.php");?>
             <br>
             <input type="text" name="naziv_ruta" placeholder="Unesite naziv rute">
             <br>
-            <input type="text" name="brpresedanja_ruta" placeholder="Unesite broj bresedanja na ruti">
+            <input type="text" name="brpresedanja_ruta" placeholder="Unesite broj presedanja na ruti">
             <br>
-            <input type="text" name="idpocetak_ruta" placeholder="Unesite pocetnu tacku rute">
+            <input type="text" name="idpocetak_ruta" placeholder="Unesite pocetnu tačku rute">
             <br>
-            <input type="text" name="idkraj_ruta" placeholder="Unesite krajnju tacku rute">
+            <input type="text" name="idkraj_ruta" placeholder="Unesite krajnju tačku rute">
             <br>
 
         </div>
@@ -116,7 +116,7 @@ include("inc/container.php");?>
             <input type="text" name="brisanje_avion" id="brisanje_avion" placeholder="Unesite id aviona koji želite da obrišete">
         </div>
         <div id="brisanje_reda_drzava"class="text-center pt-4 pb-4">
-            <input type="text" name="brisanje_drzava" id="brisanje_drzava" placeholder="Unesite id drzave koju želite da obrišete">
+            <input type="text" name="brisanje_drzava" id="brisanje_drzava" placeholder="Unesite id države koju želite da obrišete">
         </div>
         <div id="brisanje_reda_let"class="text-center pt-4 pb-4">
             <input type="text" name="brisanje_let" id="brisanje_let" placeholder="Unesite id leta koji želite da obrišete">
@@ -134,7 +134,7 @@ include("inc/container.php");?>
             <input type="text" name="regbr_avion" id="regbr_avion"
                 placeholder="Unesiteregistarkski broj aviona za promenu">
             <br>
-            <input type="text" name="naziv_avion_put" id="naziv_avion_put" placeholder="Unesite novinaziv aviona">
+            <input type="text" name="naziv_avion_put" id="naziv_avion_put" placeholder="Unesite novi naziv aviona">
             <br>
             <input type="text" name="putnici_avion_put" id="putnici_avion_put"
                 placeholder="Unesite novi maksimalni broj putnika aviona">
@@ -145,9 +145,9 @@ include("inc/container.php");?>
 
         </div>
         <div id="drzava_put"class="text-center pt-4 pb-4">
-            <input type="text" name="id_drzava" id="id_drzava" placeholder="Unesite id drzave za promenu">
+            <input type="text" name="id_drzava" id="id_drzava" placeholder="Unesite id države za promenu">
             <br>
-            <input type="text" name="naziv_drzava_put" id="naziv_drzava_put" placeholder="Unesite novi naziv drzave">
+            <input type="text" name="naziv_drzava_put" id="naziv_drzava_put" placeholder="Unesite novi naziv države">
             <br>
         </div>
         <!-- ovo menjaj-->
@@ -170,7 +170,7 @@ include("inc/container.php");?>
         <div id="pilot_put"class="text-center pt-4 pb-4">
             <input type="text" name="jmbg_pilot_put" placeholder="Unesite jmbg pilota za promenu">
             <br>
-            <input type="text" name="iddrzavljanstvo_pilot_put" placeholder="Unesite novo drzavljanstvo pilota">
+            <input type="text" name="iddrzavljanstvo_pilot_put" placeholder="Unesite novo državljanstvo pilota">
             <br>
             <input type="text" name="ime_pilot_put" id="ime_pilot_put" placeholder="Unesite novo ime pilota">
             <br>

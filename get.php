@@ -4,7 +4,7 @@ require "model/drzava.php";
 require "model/let.php";
 require "model/pilot.php";
 require "model/ruta.php";
-require "dbBroker.php";
+require "db.php";
 if( $_POST["odabir_tabele"]!= null){
                  $tabela = $_POST["odabir_tabele"];
                  switch($tabela){
