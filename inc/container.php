@@ -13,7 +13,7 @@
     </div>
     <nav class="navbar bg-light navbar-light navbar-expand-lg">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
+            <a href="index.php" class="navbar-brand">
                 
                 <img src="img/airplane.svg" alt="Logo" title="Logo"></a>
                 <span class="align-baseline">Vagabond's map</span>

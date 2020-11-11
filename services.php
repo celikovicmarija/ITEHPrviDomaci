@@ -204,10 +204,10 @@ include("inc/container.php");?>
         <div id="submit" class="text-center pt-4 pb-4">
             <input type="submit" name="posalji" id="posalji" value="Posalji zahtev">
         </div>
-        <?php	 if( isset($_POST["posalji"]) && $_POST["posalji"]="Posalji zahtev" &&$_POST["odabir_tabele"]!= null){
+        <?php	 if( isset($_POST["posalji"]) && $_POST["posalji"]="Posalji zahtev" &&isset($_POST["odabir_tabele"])){
             $tabela = $_POST["odabir_tabele"];
 
-        } if($tabela=="pilot"){?>
+         if($tabela=="pilot"){?>
 
        
     <table class="table table-striped table-bordered text-center table-hover table-fixed text-nowrap">
@@ -359,7 +359,7 @@ include("inc/container.php");?>
                      if($tabela=="ruta"){?>
 
        
-                        <table class="table table-striped table-bordered text-center  w-auto text-nowrap">
+                        <table class="table table-striped table-bordered text-center text-nowrap">
                             <thead>
                                 <tr>
                                     <th>Broj rute</th>
@@ -393,7 +393,7 @@ include("inc/container.php");?>
                                 <?php } ?>
                             </tbody>
                         </table>	
-                                </form> <?php } ?>
+                                </form> <?php } }?>
     </div>
         </div>
     </div>

@@ -48,6 +48,10 @@ body {
     margin: 0 auto;
     width: 80%;
 }
+img.animated-gif{
+    width: 120px;
+    height: auto;
+  }
   /*============= CAROUSEL =============*/
   
   #carousel{

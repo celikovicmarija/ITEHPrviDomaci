@@ -84,22 +84,22 @@ include("inc/container.php");?>
         <div class="row my-5">
             
             <div class="col-md-4 my-4">
-                    <img src="img/1.jpg" alt="" class="w-100">
+                    <img src="https://media.giphy.com/media/1xmhGbhGxJV0suEo6r/giphy.gif" alt="" class="animated-gif w-100 pb-2">
                     <h4 class="my-4">Need to recharge?</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
-                <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
+                <a href="services.php" class="btn btn-outline-dark btn-md">We can help</a>
                 </div>
                 <div class="col-md-4 my-4">
-                    <img src="img/2.jpg" alt="" class="w-100">
+                    <img src="https://media.giphy.com/media/ejylYPBM6Y6Wzd7eK0/giphy.gif" alt="" class="animated-gif w-100 ">
                     <h4 class="my-4">Want to travel?</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
-                <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
+                <a href="services.php" class="btn btn-outline-dark btn-md">We can help</a>
                 </div>
                 <div class="col-md-4 my-4">
-                    <img src="img/3.jpg" alt="" class="w-100">
+                    <img src="https://media.giphy.com/media/3otWpATa1nw5U3UzQI/giphy.gif" alt="" class="animated-gif w-100">
                     <h4 class="my-4">Looking for an inspiration?</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum doloribus aliquam non voluptatibus asperiores iure ad explicabo incidunt et nihil, aperiam dolores soluta eos expedita.</p>
-                <a href="#" class="btn btn-outline-dark btn-md">Our story</a>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tempora nisi repellendus cupiditate earum  voluptatibus asperiores et nihil, aperiam dolores soluta eos expedita.</p>
+                <a href="services.php" class="btn btn-outline-dark btn-md">We can help</a>
                 </div>
         </div>
     </div>
@@ -151,26 +151,12 @@ include("inc/container.php");?>
                     <h1 class="text-dark font-weight-bold mb-3">We've been expecting you</h1>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dolore repudiandae ut? Possimus esse amet officia ullam itaque? Labore voluptatum eum sequi ab numquam iusto odit nesciunt ducimus eveniet commodi!</p>
                
-<a href="#" class="btn btn-outline-dark btn-lg" target="_blank">The agency theme</a>          
+<a href="services.php" class="btn btn-outline-dark btn-lg" target="_blank">Hello</a>          
                 </div>
                 <div class="col-lg-8"><img src="https://media.giphy.com/media/gFKYJM8PDJ4zdGMyPg/giphy.gif" alt="" class="w-100"></div>
         </div>
     </div>
-    <!-- End Two Column Section -->
-    <!-- Start Jumbotron -->
-    <div class="jumbotron py-5 mb-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 col-lg-8 col-xl-9 my-auto">
-                    <h4>Some text inside jumbotron out here.</h4>
-                </div>
-                <div class="col-md-5 col-lg-4 col-xl-3 pt-4 pt-md-0"></div>
-                <a href="#" class="btn btn-primary btn-lg"> Contact Us Today</a>
-            </div>
-        </div>
-    </div>
-    <!-- End Jumbotron -->
-    <!-- Start Footer -->
+  
     <?php 
 include "inc/footer.php"
 ?>
